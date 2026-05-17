@@ -53,122 +53,33 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
           <div key={i} className={`absolute w-7 h-7 ${cls} border-[#00d4ff]`} />
         ))}
 
-        {/* Portrait area — replace with <img> when photo is available */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          {/* Silhouette SVG — artistic placeholder until real photo is added */}
-          <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" className="w-[70%] h-auto opacity-90">
-            <defs>
-              <radialGradient id="portBg" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stopColor="#0d2a4a" />
-                <stop offset="100%" stopColor="#050816" />
-              </radialGradient>
-              <radialGradient id="skinGrad" cx="40%" cy="35%" r="65%">
-                <stop offset="0%" stopColor="#1e3a5a" />
-                <stop offset="60%" stopColor="#0d2035" />
-                <stop offset="100%" stopColor="#060e1c" />
-              </radialGradient>
-              <radialGradient id="eyeGlow" cx="40%" cy="30%" r="60%">
-                <stop offset="0%" stopColor="#ffffff" />
-                <stop offset="30%" stopColor="#00d4ff" />
-                <stop offset="100%" stopColor="#003366" stopOpacity="0" />
-              </radialGradient>
-              <filter id="portGlow">
-                <feGaussianBlur stdDeviation="3" result="b" />
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0a1628" />
-                <stop offset="100%" stopColor="#050e1e" />
-              </linearGradient>
-            </defs>
-
-            {/* Body / torso */}
-            <path d="M20 280 L20 185 Q30 160 100 155 Q170 160 180 185 L180 280 Z"
-              fill="url(#bodyGrad)" />
-            {/* Collar glow */}
-            <path d="M70 160 Q100 155 130 160 L125 175 Q100 170 75 175 Z"
-              fill="rgba(0,212,255,0.12)" stroke="#00d4ff" strokeWidth="0.5" strokeOpacity="0.5" />
-            {/* Shoulders edge lighting */}
-            <path d="M20 200 Q25 170 60 162"
-              stroke="#00d4ff" strokeWidth="1" fill="none" strokeOpacity="0.4" />
-            <path d="M180 200 Q175 170 140 162"
-              stroke="#bd93f9" strokeWidth="1" fill="none" strokeOpacity="0.4" />
-
-            {/* Neck */}
-            <rect x="82" y="140" width="36" height="24" rx="4"
-              fill="url(#skinGrad)" />
-
-            {/* Face oval */}
-            <ellipse cx="100" cy="100" rx="52" ry="62"
-              fill="url(#skinGrad)"
-              stroke="#00d4ff" strokeWidth="0.6" strokeOpacity="0.45" />
-
-            {/* Edge lighting left */}
-            <path d="M49 55 Q46 100 50 140"
-              stroke="#00d4ff" strokeWidth="2" fill="none"
-              strokeOpacity="0.55" filter="url(#portGlow)" />
-            {/* Edge lighting right */}
-            <path d="M151 55 Q154 100 150 140"
-              stroke="#bd93f9" strokeWidth="2" fill="none"
-              strokeOpacity="0.55" filter="url(#portGlow)" />
-
-            {/* Hair */}
-            <ellipse cx="100" cy="47" rx="50" ry="36" fill="#0d0a20" />
-            <ellipse cx="100" cy="50" rx="44" ry="30" fill="#140d28" />
-            <path d="M54 60 Q70 40 100 36 Q130 40 146 60"
-              stroke="#00d4ff" strokeWidth="0.5" fill="none" strokeOpacity="0.25" />
-
-            {/* Forehead highlight */}
-            <ellipse cx="100" cy="68" rx="30" ry="7" fill="rgba(0,212,255,0.1)" />
-
-            {/* Left eyebrow */}
-            <path d="M65 83 Q76 78 88 81"
-              stroke="#00d4ff" strokeWidth="1.8" fill="none" strokeOpacity="0.55" strokeLinecap="round" />
-            {/* Right eyebrow */}
-            <path d="M112 81 Q124 78 135 83"
-              stroke="#bd93f9" strokeWidth="1.8" fill="none" strokeOpacity="0.55" strokeLinecap="round" />
-
-            {/* Left eye */}
-            <g filter="url(#portGlow)">
-              <ellipse cx="77" cy="97" rx="11" ry="8" fill="url(#eyeGlow)" />
-              <ellipse cx="77" cy="97" rx="6.5" ry="6" fill="#030b18" />
-              <circle cx="77" cy="97" r="3" fill="#00d4ff" opacity="0.9" />
-              <circle cx="79" cy="95" r="1.4" fill="white" opacity="0.95" />
-            </g>
-
-            {/* Right eye */}
-            <g filter="url(#portGlow)">
-              <ellipse cx="123" cy="97" rx="11" ry="8">
-                <animate attributeName="fill" values="rgba(189,147,249,0.9);rgba(189,147,249,0.7);rgba(189,147,249,0.9)" dur="3s" repeatCount="indefinite" />
-              </ellipse>
-              <ellipse cx="123" cy="97" rx="11" ry="8" fill="rgba(189,147,249,0.85)" />
-              <ellipse cx="123" cy="97" rx="6.5" ry="6" fill="#0a0518" />
-              <circle cx="123" cy="97" r="3" fill="#bd93f9" opacity="0.9" />
-              <circle cx="125" cy="95" r="1.4" fill="white" opacity="0.95" />
-            </g>
-
-            {/* Nose */}
-            <path d="M100 107 L96 122 Q100 126 104 122 L100 107"
-              stroke="rgba(0,212,255,0.2)" strokeWidth="1.2"
-              fill="rgba(0,212,255,0.05)" strokeLinecap="round" />
-
-            {/* Lips */}
-            <path d="M80 133 Q90 139 100 138 Q110 139 120 133"
-              stroke="rgba(0,212,255,0.6)" strokeWidth="1.8"
-              fill="rgba(0,212,255,0.1)" strokeLinecap="round" />
-            <path d="M86 133 Q100 136 114 133"
-              stroke="rgba(189,147,249,0.35)" strokeWidth="1"
-              fill="none" strokeLinecap="round" />
-
-            {/* Chin highlight */}
-            <ellipse cx="100" cy="150" rx="16" ry="5" fill="rgba(0,212,255,0.1)" />
-
-            {/* Scan lines across face */}
-            {Array.from({ length: 14 }, (_, i) => (
-              <line key={i} x1="48" y1={42 + i * 8} x2="152" y2={42 + i * 8}
-                stroke="#00d4ff" strokeWidth="0.25" strokeOpacity="0.1" />
-            ))}
-          </svg>
+        {/* Real photo with holographic treatment */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/harish.jpg"
+            alt="Harish Sabari P V"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 15%' }}
+          />
+          {/* Cyan holographic colour wash */}
+          <div className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0,102,255,0.18) 0%, rgba(0,212,255,0.08) 50%, rgba(124,58,237,0.18) 100%)',
+              mixBlendMode: 'screen',
+            }}
+          />
+          {/* Edge rim lighting — left cyan */}
+          <div className="absolute inset-y-0 left-0 w-8"
+            style={{
+              background: 'linear-gradient(to right, rgba(0,212,255,0.35), transparent)',
+            }}
+          />
+          {/* Edge rim lighting — right purple */}
+          <div className="absolute inset-y-0 right-0 w-8"
+            style={{
+              background: 'linear-gradient(to left, rgba(124,58,237,0.35), transparent)',
+            }}
+          />
         </div>
 
         {/* Scan line sweep */}

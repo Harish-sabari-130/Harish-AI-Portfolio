@@ -79,157 +79,79 @@ function getReply(input: string): string {
   return opts[Math.floor(Math.random() * opts.length)];
 }
 
-function SAHAFace({ isActive, isHovered }: { isActive: boolean; isHovered: boolean }) {
+/* ── SAHA photo-based holographic avatar ── */
+function SAHAFace({ isActive, isHovered, size = 'md' }: {
+  isActive: boolean;
+  isHovered: boolean;
+  size?: 'sm' | 'md';
+}) {
+  const dim = size === 'sm' ? { w: 20, h: 24 } : { w: 72, h: 86 };
+
   return (
-    <div className={`relative transition-all duration-500 ${isActive ? 'saha-breathe' : ''}`}>
-      <svg
-        viewBox="0 0 100 118"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
-        style={{ filter: `drop-shadow(0 0 ${isHovered ? '12' : '6'}px rgba(0,212,255,0.5))` }}
-      >
-        <defs>
-          <radialGradient id="sahaFaceBg" cx="50%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#0d2040" />
-            <stop offset="70%" stopColor="#080f1e" />
-            <stop offset="100%" stopColor="#050816" />
-          </radialGradient>
-          <radialGradient id="sahaEyeL" cx="40%" cy="35%" r="60%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="25%" stopColor="#00d4ff" />
-            <stop offset="70%" stopColor="#0055cc" />
-            <stop offset="100%" stopColor="#001a4d" stopOpacity="0.3" />
-          </radialGradient>
-          <radialGradient id="sahaEyeR" cx="40%" cy="35%" r="60%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="25%" stopColor="#bd93f9" />
-            <stop offset="70%" stopColor="#6e3da8" />
-            <stop offset="100%" stopColor="#200a40" stopOpacity="0.3" />
-          </radialGradient>
-          <radialGradient id="sahaForehead" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#00d4ff" stopOpacity="0" />
-          </radialGradient>
-          <filter id="sahaGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <filter id="sahaEyeGlow" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <clipPath id="faceClip">
-            <ellipse cx="50" cy="62" rx="33" ry="44" />
-          </clipPath>
-        </defs>
+    <div
+      className={`relative overflow-hidden rounded-[40%_40%_36%_36%] saha-breathe`}
+      style={{
+        width: dim.w,
+        height: dim.h,
+        flexShrink: 0,
+        boxShadow: isHovered
+          ? '0 0 0 1.5px #00d4ff, 0 0 20px rgba(0,212,255,0.7), 0 0 40px rgba(0,212,255,0.3)'
+          : `0 0 0 1px rgba(0,212,255,${isActive ? '0.7' : '0.4'}), 0 0 12px rgba(0,212,255,0.3)`,
+        transition: 'box-shadow 0.3s ease',
+      }}
+    >
+      {/* Real photo */}
+      <img
+        src="/harish.jpg"
+        alt="SAHA"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: 'center 12%' }}
+      />
 
-        {/* Outer ambient glow */}
-        <ellipse cx="50" cy="60" rx="46" ry="55" fill="none" stroke={isHovered ? '#00d4ff' : 'transparent'}
-          strokeWidth="0.3" strokeOpacity="0.4" />
-        <ellipse cx="50" cy="60" rx="42" ry="51" fill="none" stroke="#00d4ff" strokeWidth="0.2" strokeOpacity="0.2" />
+      {/* Holographic colour treatment — cyan/blue wash */}
+      <div className="absolute inset-0" style={{
+        background: 'linear-gradient(160deg, rgba(0,180,255,0.22) 0%, rgba(0,80,200,0.12) 50%, rgba(100,40,220,0.18) 100%)',
+        mixBlendMode: 'screen',
+      }} />
 
-        {/* Face oval */}
-        <ellipse cx="50" cy="62" rx="33" ry="44"
-          fill="url(#sahaFaceBg)"
-          stroke="#00d4ff" strokeWidth="0.7" strokeOpacity={isHovered ? 0.9 : 0.6} />
+      {/* Left edge rim — cyan */}
+      <div className="absolute inset-y-0 left-0 w-[15%]" style={{
+        background: 'linear-gradient(to right, rgba(0,212,255,0.55), transparent)',
+      }} />
+      {/* Right edge rim — purple */}
+      <div className="absolute inset-y-0 right-0 w-[15%]" style={{
+        background: 'linear-gradient(to left, rgba(124,58,237,0.45), transparent)',
+      }} />
+      {/* Top fade to dark */}
+      <div className="absolute top-0 left-0 right-0 h-[15%]" style={{
+        background: 'linear-gradient(to bottom, rgba(5,8,22,0.5), transparent)',
+      }} />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-[20%]" style={{
+        background: 'linear-gradient(to top, rgba(5,8,22,0.8), transparent)',
+      }} />
 
-        {/* Edge lighting — left side (cyan) */}
-        <path d="M17.5 30 Q16 62 18.5 92"
-          stroke="#00d4ff" strokeWidth="1.5" fill="none"
-          strokeOpacity="0.7" strokeLinecap="round"
-          filter="url(#sahaGlow)" />
+      {/* Scan-line overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.06) 2px, rgba(0,212,255,0.06) 3px)',
+        backgroundSize: '100% 5px',
+      }} />
 
-        {/* Edge lighting — right side (purple) */}
-        <path d="M82.5 30 Q84 62 81.5 92"
-          stroke="#bd93f9" strokeWidth="1.5" fill="none"
-          strokeOpacity="0.7" strokeLinecap="round"
-          filter="url(#sahaGlow)" />
+      {/* Animated scan sweep */}
+      <div className="absolute left-0 right-0 h-[2px] saha-scanline" style={{
+        background: 'linear-gradient(90deg, transparent, rgba(0,212,255,0.7), transparent)',
+      }} />
 
-        {/* Hair — dark mass at top */}
-        <ellipse cx="50" cy="22" rx="32" ry="24" fill="#0e0820" />
-        <ellipse cx="50" cy="24" rx="28" ry="20" fill="#140d28" />
-        {/* Hair detail lines */}
-        <path d="M26 28 Q38 20 50 18 Q62 20 74 28" stroke="#00d4ff"
-          strokeWidth="0.4" fill="none" strokeOpacity="0.2" />
-        <path d="M30 32 Q40 24 50 22 Q60 24 70 32" stroke="#bd93f9"
-          strokeWidth="0.3" fill="none" strokeOpacity="0.15" />
-
-        {/* Forehead glow */}
-        <ellipse cx="50" cy="40" rx="22" ry="5" fill="url(#sahaForehead)" />
-
-        {/* Left eyebrow */}
-        <path d="M28 50 Q35 46 43 49"
-          stroke="#00d4ff" strokeWidth="1.1" fill="none"
-          strokeOpacity="0.6" strokeLinecap="round" />
-
-        {/* Right eyebrow */}
-        <path d="M57 49 Q65 46 72 50"
-          stroke="#bd93f9" strokeWidth="1.1" fill="none"
-          strokeOpacity="0.6" strokeLinecap="round" />
-
-        {/* Left eye */}
-        <g filter="url(#sahaEyeGlow)" className="saha-blink-l">
-          <circle cx="35" cy="57" r="6.5" fill="url(#sahaEyeL)" />
-          <circle cx="35" cy="57" r="3.8" fill="#020b16" />
-          <circle cx="35" cy="57" r="1.8" fill="#00d4ff" opacity="0.9" />
-          <circle cx="36.5" cy="55.5" r="0.9" fill="white" opacity="0.95" />
-        </g>
-
-        {/* Right eye */}
-        <g filter="url(#sahaEyeGlow)" className="saha-blink-r">
-          <circle cx="65" cy="57" r="6.5" fill="url(#sahaEyeR)" />
-          <circle cx="65" cy="57" r="3.8" fill="#0a0518" />
-          <circle cx="65" cy="57" r="1.8" fill="#bd93f9" opacity="0.9" />
-          <circle cx="66.5" cy="55.5" r="0.9" fill="white" opacity="0.95" />
-        </g>
-
-        {/* Nose bridge — subtle */}
-        <path d="M50 65 L47.5 74 Q50 76 52.5 74 L50 65"
-          stroke="rgba(0,212,255,0.22)" strokeWidth="0.9"
-          fill="rgba(0,212,255,0.04)" strokeLinecap="round" strokeLinejoin="round" />
-
-        {/* Lips */}
-        <path d="M38 83 Q44 87 50 86 Q56 87 62 83"
-          stroke="rgba(0,212,255,0.55)" strokeWidth="1.1"
-          fill="rgba(0,212,255,0.07)" strokeLinecap="round" />
-        <path d="M43 83 Q50 85 57 83"
-          stroke="rgba(189,147,249,0.35)" strokeWidth="0.7"
-          fill="none" strokeLinecap="round" />
-
-        {/* Chin highlight */}
-        <ellipse cx="50" cy="98" rx="10" ry="3" fill="rgba(0,212,255,0.09)" />
-
-        {/* Horizontal scan lines clipped to face */}
-        <g clipPath="url(#faceClip)" opacity="0.06">
-          {Array.from({ length: 22 }, (_, i) => (
-            <line key={i} x1="17" y1={18 + i * 4} x2="83" y2={18 + i * 4}
-              stroke="#00d4ff" strokeWidth="0.4" />
-          ))}
-        </g>
-
-        {/* Moving scan line */}
-        <line x1="17" y1="18" x2="83" y2="18"
-          stroke="#00d4ff" strokeWidth="0.8" strokeOpacity="0.5"
-          className="saha-scanline" />
-
-        {/* Collar / neck base */}
-        <path d="M34 106 Q50 110 66 106 L64 118 L36 118 Z"
-          fill="#0d1628" stroke="#00d4ff" strokeWidth="0.5" strokeOpacity="0.4" />
-
-        {/* Shoulder hint */}
-        <path d="M20 118 Q32 108 50 110 Q68 108 80 118"
-          stroke="#00d4ff" strokeWidth="0.6" fill="none" strokeOpacity="0.3" />
-
-        {/* Status dot in face (chin area) */}
-        <circle cx="50" cy="113" r="1.2" fill="#00d4ff" opacity={isActive ? 1 : 0.4}
-          style={{ filter: 'drop-shadow(0 0 3px #00d4ff)' }} />
-      </svg>
+      {/* Active status dot (bottom centre) */}
+      {size === 'md' && (
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
+          style={{
+            background: '#00d4ff',
+            boxShadow: '0 0 6px #00d4ff',
+            opacity: isActive ? 1 : 0.4,
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -312,8 +234,8 @@ export default function AIAvatar() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(0,212,255,0.15)]"
               style={{ background: 'rgba(0,212,255,0.05)' }}>
               <div className="flex items-center gap-3">
-                <div className="w-7 h-8 flex-shrink-0">
-                  <SAHAFace isActive={true} isHovered={false} />
+                <div className="flex-shrink-0">
+                  <SAHAFace isActive={true} isHovered={false} size="sm" />
                 </div>
                 <div>
                   <div className="font-mono font-bold text-white text-sm tracking-wider">SAHA</div>
@@ -356,8 +278,8 @@ export default function AIAvatar() {
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} items-end gap-2`}
                 >
                   {msg.role === 'ai' && (
-                    <div className="w-5 h-6 flex-shrink-0 mb-0.5">
-                      <SAHAFace isActive={true} isHovered={false} />
+                    <div className="flex-shrink-0 mb-0.5">
+                      <SAHAFace isActive={true} isHovered={false} size="sm" />
                     </div>
                   )}
                   <div
@@ -383,8 +305,8 @@ export default function AIAvatar() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-end gap-2"
                 >
-                  <div className="w-5 h-6 flex-shrink-0">
-                    <SAHAFace isActive={true} isHovered={false} />
+                  <div className="flex-shrink-0">
+                    <SAHAFace isActive={true} isHovered={false} size="sm" />
                   </div>
                   <div className="px-3 py-2.5 rounded-xl rounded-bl-sm border border-[rgba(0,212,255,0.15)]"
                     style={{ background: 'rgba(0,212,255,0.06)' }}>
@@ -471,7 +393,7 @@ export default function AIAvatar() {
             onClick={() => setIsMinimized(false)}
             data-interactive="true"
           >
-            <div className="w-5 h-6"><SAHAFace isActive={true} isHovered={false} /></div>
+            <div className="flex-shrink-0"><SAHAFace isActive={true} isHovered={false} size="sm" /></div>
             <span className="text-xs font-mono text-[#00d4ff] tracking-wider">SAHA</span>
             <ChevronDown size={12} className="text-[#00d4ff]" />
           </motion.div>
