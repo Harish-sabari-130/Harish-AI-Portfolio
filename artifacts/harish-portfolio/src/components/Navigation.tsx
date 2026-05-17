@@ -67,17 +67,44 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo mark */}
         <button
           onClick={() => scrollTo('hero')}
-          className="text-xl font-mono font-black tracking-widest glitch-text"
-          style={{
-            color: '#00d4ff',
-            textShadow: '0 0 12px rgba(0,212,255,0.7)',
-          }}
+          className="flex items-center gap-2 group"
           data-interactive="true"
+          aria-label="Back to top"
         >
-          H.AI
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+            className="transition-all duration-500 group-hover:drop-shadow-[0_0_10px_rgba(0,212,255,0.9)]"
+          >
+            {/* Outer hexagon */}
+            <path d="M18 2 L32 10 L32 26 L18 34 L4 26 L4 10 Z"
+              stroke="#00d4ff" strokeWidth="1" fill="none" strokeOpacity="0.6" />
+            {/* Inner hexagon rotated */}
+            <path d="M18 7 L28 13 L28 23 L18 29 L8 23 L8 13 Z"
+              stroke="#bd93f9" strokeWidth="0.6" fill="none" strokeOpacity="0.35" />
+            {/* H letter — two verticals + crossbar */}
+            <line x1="13" y1="13" x2="13" y2="23" stroke="#00d4ff" strokeWidth="2" strokeLinecap="round" />
+            <line x1="23" y1="13" x2="23" y2="23" stroke="#00d4ff" strokeWidth="2" strokeLinecap="round" />
+            <line x1="13" y1="18" x2="23" y2="18" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" />
+            {/* Corner accent dots */}
+            <circle cx="4"  cy="10" r="1.2" fill="#00d4ff" opacity="0.7" />
+            <circle cx="32" cy="10" r="1.2" fill="#00d4ff" opacity="0.7" />
+            <circle cx="4"  cy="26" r="1.2" fill="#bd93f9" opacity="0.7" />
+            <circle cx="32" cy="26" r="1.2" fill="#bd93f9" opacity="0.7" />
+            <circle cx="18" cy="2"  r="1.2" fill="#00d4ff" opacity="0.5" />
+            <circle cx="18" cy="34" r="1.2" fill="#bd93f9" opacity="0.5" />
+          </svg>
+          <div className="flex flex-col leading-none">
+            <span className="text-[11px] font-mono font-bold tracking-[0.2em]"
+              style={{ color: '#00d4ff', textShadow: '0 0 8px rgba(0,212,255,0.5)' }}>
+              HARISH
+            </span>
+            <span className="text-[8px] font-mono tracking-[0.3em]"
+              style={{ color: 'rgba(189,147,249,0.7)' }}>
+              SABARI
+            </span>
+          </div>
         </button>
 
         {/* Desktop links */}

@@ -133,16 +133,13 @@
 }
 
 @keyframes glitch {
-  0% { transform: translate(0) }
-  20% { transform: translate(-2px, 2px) }
-  40% { transform: translate(-2px, -2px) }
-  60% { transform: translate(2px, 2px) }
-  80% { transform: translate(2px, -2px) }
-  100% { transform: translate(0) }
+  0%, 100% { text-shadow: 0 0 10px rgba(0,212,255,0.6); }
+  40%       { text-shadow: 0 0 22px rgba(0,212,255,1), 0 0 40px rgba(0,212,255,0.4); }
+  70%       { text-shadow: 0 0 14px rgba(189,147,249,0.7), 0 0 28px rgba(0,212,255,0.3); }
 }
 
 .glitch-text:hover {
-  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  animation: glitch 1.8s ease-in-out infinite;
 }
 
 @keyframes scanline {

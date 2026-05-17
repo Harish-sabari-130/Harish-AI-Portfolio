@@ -281,11 +281,11 @@ export default function HeroSection() {
               backgroundClip: 'text',
               filter: 'drop-shadow(0 0 24px rgba(0,212,255,0.35))',
             }}>
-            HARISH
+            HARISH SABARI
           </h1>
           <h2 className="text-lg md:text-xl font-mono tracking-[0.25em] mb-5"
             style={{ color: 'rgba(189,147,249,0.8)' }}>
-            SABARI P V
+            P V
           </h2>
 
           {/* Typewriter */}
