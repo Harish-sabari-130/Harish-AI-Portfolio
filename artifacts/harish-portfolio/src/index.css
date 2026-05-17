@@ -154,3 +154,57 @@
 .animate-scanline {
   animation: scanline 4s linear infinite;
 }
+
+/* ── SAHA avatar animations ── */
+@keyframes saha-breathe {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50%       { transform: scaleY(1.015) translateY(-1px); }
+}
+
+@keyframes saha-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes saha-blink {
+  0%, 90%, 100%  { transform: scaleY(1); }
+  95%            { transform: scaleY(0.05); }
+}
+
+@keyframes saha-eye-move {
+  0%, 100% { transform: translateX(0); }
+  30%      { transform: translateX(1.5px); }
+  70%      { transform: translateX(-1.5px); }
+}
+
+.saha-breathe {
+  animation: saha-breathe 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.saha-blink-l {
+  animation: saha-blink 4.5s ease-in-out 0.3s infinite;
+  transform-origin: 35px 57px;
+}
+
+.saha-blink-r {
+  animation: saha-blink 4.5s ease-in-out 0.5s infinite;
+  transform-origin: 65px 57px;
+}
+
+.saha-scanline {
+  animation: saha-face-scan 3s linear infinite;
+}
+
+@keyframes saha-face-scan {
+  0%   { transform: translateY(0px);  opacity: 0; }
+  5%   { opacity: 0.6; }
+  95%  { opacity: 0.3; }
+  100% { transform: translateY(100px); opacity: 0; }
+}
+
+/* bounce dots for typing indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.5; }
+  50%       { transform: translateY(-4px); opacity: 1; }
+}

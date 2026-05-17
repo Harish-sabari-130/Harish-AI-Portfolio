@@ -1,117 +1,184 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+
+const NAV_LINKS = [
+  { name: 'HOME',       id: 'hero' },
+  { name: 'ABOUT',      id: 'about' },
+  { name: 'SKILLS',     id: 'skills' },
+  { name: 'PROJECTS',   id: 'projects' },
+  { name: 'EXPERIENCE', id: 'experience' },
+  { name: 'CONTACT',    id: 'contact' },
+];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled]           = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileOpen, setMobileOpen]       = useState(false);
+  const activeRef = useRef('hero');
 
-  const navLinks = [
-    { name: 'HOME', id: 'hero' },
-    { name: 'ABOUT', id: 'about' },
-    { name: 'SKILLS', id: 'skills' },
-    { name: 'PROJECTS', id: 'projects' },
-    { name: 'EXPERIENCE', id: 'experience' },
-    { name: 'CONTACT', id: 'contact' },
-  ];
-
+  /* ── scroll-based background ── */
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Update background state
-      if (currentScrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-      
-      // Hide/show based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
+  /* ── Intersection Observer — fires when section centre crosses viewport centre ── */
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "-10% 0px -50% 0px" }
-    );
+    const observers: IntersectionObserver[] = [];
 
-    navLinks.forEach(({ id }) => {
+    NAV_LINKS.forEach(({ id }) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (!el) return;
+
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            activeRef.current = id;
+            setActiveSection(id);
+          }
+        },
+        {
+          rootMargin: '-48% 0px -48% 0px',
+          threshold: 0,
+        }
+      );
+      obs.observe(el);
+      observers.push(obs);
     });
 
-    return () => observer.disconnect();
+    return () => observers.forEach(o => o.disconnect());
   }, []);
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileOpen(false);
   };
 
   return (
-    <AnimatePresence>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.3 }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-background/85 backdrop-blur-md border-b border-primary/20 shadow-[0_4px_30px_rgba(0,212,255,0.1)]' 
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div 
-            className="text-2xl font-mono font-bold text-primary glitch-text cursor-pointer drop-shadow-[0_0_8px_rgba(0,212,255,0.6)]"
-            onClick={() => scrollTo('hero')}
-          >
-            H.AI
-          </div>
-          
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        scrolled
+          ? 'bg-[rgba(5,8,22,0.88)] backdrop-blur-xl border-b border-[rgba(0,212,255,0.15)] shadow-[0_4px_30px_rgba(0,212,255,0.08)]'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <button
+          onClick={() => scrollTo('hero')}
+          className="text-xl font-mono font-black tracking-widest glitch-text"
+          style={{
+            color: '#00d4ff',
+            textShadow: '0 0 12px rgba(0,212,255,0.7)',
+          }}
+          data-interactive="true"
+        >
+          H.AI
+        </button>
+
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-1">
+          {NAV_LINKS.map(link => {
+            const isActive = activeSection === link.id;
+            return (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className={`relative text-sm font-medium tracking-widest transition-colors ${
-                  activeSection === link.id ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className="relative px-3 py-2 text-[11px] font-mono tracking-[0.18em] transition-colors duration-200"
+                style={{
+                  color: isActive ? '#00d4ff' : 'rgba(255,255,255,0.5)',
+                  textShadow: isActive ? '0 0 8px rgba(0,212,255,0.6)' : 'none',
+                }}
                 data-interactive="true"
               >
                 {link.name}
-                {activeSection === link.id && (
-                  <motion.div
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-2 left-0 right-0 h-[2px] bg-primary shadow-[0_0_8px_#00d4ff]"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+
+                {/* Active underline with layoutId for smooth slide */}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active-bar"
+                    className="absolute bottom-0 left-2 right-2 h-[2px] rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, #00d4ff, transparent)',
+                      boxShadow: '0 0 8px #00d4ff',
+                    }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 34 }}
                   />
                 )}
+
+                {/* Hover background */}
+                <span
+                  className="absolute inset-0 rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none"
+                  style={{ background: 'rgba(0,212,255,0.05)' }}
+                />
               </button>
-            ))}
-          </div>
+            );
+          })}
+
+          {/* CTA */}
+          <button
+            onClick={() => scrollTo('contact')}
+            className="ml-4 px-4 py-2 text-[11px] font-mono tracking-widest border transition-all duration-200 hover:shadow-[0_0_15px_rgba(0,212,255,0.3)]"
+            style={{
+              color: '#00d4ff',
+              borderColor: 'rgba(0,212,255,0.4)',
+              background: 'rgba(0,212,255,0.06)',
+            }}
+            data-interactive="true"
+          >
+            HIRE ME
+          </button>
         </div>
-      </motion.nav>
-    </AnimatePresence>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMobileOpen(o => !o)}
+          data-interactive="true"
+        >
+          {[0, 1, 2].map(i => (
+            <motion.span
+              key={i}
+              animate={mobileOpen
+                ? i === 1 ? { opacity: 0 } : i === 0 ? { rotate: 45, y: 9 } : { rotate: -45, y: -9 }
+                : { rotate: 0, y: 0, opacity: 1 }
+              }
+              className="block w-5 h-0.5"
+              style={{ background: '#00d4ff' }}
+            />
+          ))}
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="md:hidden px-6 pb-6 flex flex-col gap-3 border-t border-[rgba(0,212,255,0.15)]"
+          style={{ background: 'rgba(5,8,22,0.97)', backdropFilter: 'blur(20px)' }}
+        >
+          {NAV_LINKS.map(link => (
+            <button
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              className="text-left py-2 text-sm font-mono tracking-widest transition-colors"
+              style={{
+                color: activeSection === link.id ? '#00d4ff' : 'rgba(255,255,255,0.6)',
+                textShadow: activeSection === link.id ? '0 0 8px rgba(0,212,255,0.5)' : 'none',
+              }}
+              data-interactive="true"
+            >
+              {link.name}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </motion.nav>
   );
 }
