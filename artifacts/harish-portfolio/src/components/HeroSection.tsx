@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import CSSParticles from './CSSParticles';
 
 const ROLES = [
-  'Full Stack Developer',
-  'AI / ML Engineer',
-  'React Specialist',
-  'Python Developer',
-  'Open Source Builder',
+  'AI / ML Student',
+  'Full-Stack Developer',
+  'Computer Vision Builder',
+  'ServiceNow Developer',
+  'AI Enthusiast',
 ];
 
 /* ── holographic portrait panel ── */
@@ -311,7 +311,7 @@ export default function HeroSection() {
           {/* Description */}
           <p className="text-sm sm:text-base mb-8 md:mb-10 max-w-md leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'Space Grotesk, sans-serif' }}>
-            Building intelligence that feels human — at the intersection of scalable AI systems and cinematic user experiences.
+            Building intelligent applications and real-world software solutions through AI, machine learning, and modern web technologies.
           </p>
 
           {/* CTA buttons */}
@@ -355,12 +355,16 @@ export default function HeroSection() {
 
           {/* Social mini-links */}
           <div className="flex items-center gap-5 mt-6 sm:mt-8">
-            {['GitHub', 'LinkedIn', 'Twitter'].map(s => (
-              <a key={s} href="#"
+            {[
+              { label: 'GitHub',   href: 'https://github.com/Harish-sabari-130' },
+              { label: 'LinkedIn', href: 'https://linkedin.com/in/harish-sabari-130hssh/' },
+              { label: 'Email',    href: 'mailto:harish23alr@gmail.com' },
+            ].map(s => (
+              <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
                 className="text-[10px] font-mono tracking-widest transition-colors hover:text-[#00d4ff]"
                 style={{ color: 'rgba(255,255,255,0.3)' }}
                 data-interactive="true">
-                {s}
+                {s.label}
               </a>
             ))}
           </div>

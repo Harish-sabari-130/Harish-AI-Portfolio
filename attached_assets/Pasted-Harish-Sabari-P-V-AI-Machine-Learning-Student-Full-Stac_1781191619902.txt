@@ -1,0 +1,201 @@
+Harish Sabari P V
+
+AI & Machine Learning Student | Full-Stack Developer | AI Enthusiast
+
+Building intelligent applications and real-world software solutions through AI, machine learning, and modern web technologies.
+
+📍 Tamil Nadu, India
+📧 harish23alr@gmail.com
+📱 +91 9080562629
+🐙 GitHub: github.com/Harish-sabari-130
+💼 LinkedIn: linkedin.com/in/harish-sabari-130hssh/
+
+Call-to-Action Buttons
+
+View Projects
+Download Resume
+Contact Me
+About Me
+About
+
+I am a B.Tech Artificial Intelligence and Machine Learning student at Kongu Engineering College with a strong interest in AI-powered applications, full-stack development, and software engineering.
+
+I enjoy transforming ideas into practical solutions and have experience developing projects in machine learning, computer vision, workflow automation, and web development. My goal is to contribute to innovative products while continuously improving my technical and problem-solving abilities.
+
+Education
+Kongu Engineering College
+
+B.Tech – Artificial Intelligence & Machine Learning
+
+2023 – 2027
+
+Erode, Tamil Nadu
+
+CGPA: 6.0
+
+AKV Matric Hr Sec School
+Higher Secondary Education (HSC)
+
+2022 – 2023
+
+Percentage: 86%
+
+AKV Matric Hr Sec School
+Secondary School Education (SSLC)
+
+2020 – 2021
+
+Status: Pass
+
+Skills
+Programming Languages
+Java
+Python
+C
+Machine Learning & AI
+TensorFlow
+Scikit-Learn
+OpenCV
+NumPy
+Pandas
+Full Stack Development
+React
+Node.js
+Express.js
+MongoDB
+MySQL
+HTML
+CSS
+Tools & Platforms
+Git
+Jupyter Notebook
+ServiceNow
+Projects
+1. Safina – Women Safety Analysis
+
+A smart women safety platform designed to provide emergency assistance and location tracking during critical situations.
+
+Features
+Real-time location tracking
+Instant emergency alerts
+Multi-level emergency escalation
+Trusted contact notifications
+Emergency response support
+Technologies
+
+React • Node.js • MongoDB • GPS Tracking
+
+GitHub:
+https://github.com/Harish-sabari-130/Women-safety-application
+
+2. Live Vision – Real-Time Object Detection System
+
+A computer vision application that performs object detection on live video streams using YOLO.
+
+Features
+Real-time object detection
+Live camera processing
+Optimized detection performance
+Enhanced model accuracy
+Technologies
+
+Python • YOLO • OpenCV • TensorFlow
+
+GitHub:
+https://github.com/Harish-sabari-130/Real-time-object-detection-using-YOLO
+
+3. Nomad Visa Hub
+Digital Visa & Immigration Management System
+
+A ServiceNow-based visa management platform that simplifies visa applications and renewals.
+
+Features
+Visa application submission
+Secure document upload
+Real-time application tracking
+Workflow automation
+Expiry notifications
+Agent Workspace integration
+Technologies
+
+ServiceNow • Flow Designer • Service Portal • App Engine Studio
+
+4. Expense Tracker Agent
+
+An AI-powered expense management system that automatically tracks, categorizes, and analyzes financial transactions.
+
+Features
+Automated expense tracking
+Spending categorization
+Rule-based analysis
+Financial summaries and insights
+Technologies
+
+Python • AI Workflows • Data Analysis
+
+Experience
+ServiceNow Intern
+
+January 2026 – April 2026
+
+Responsibilities
+Worked on ServiceNow platform fundamentals
+Learned ITSM workflows
+Built solutions using App Engine Studio
+Worked with Flow Designer and UI Builder
+Explored AI-powered workflow automation
+Developed low-code applications
+Freelance Web Developer
+Client Project
+
+Developed a business website by handling:
+
+Requirement gathering
+UI development
+Deployment
+Client communication
+
+Project:
+https://firstinalltime.in/
+
+Certifications
+
+🏆 Oracle Java SE 17 Developer
+
+🏆 Oracle Apex Cloud Developer
+
+Areas of Interest
+Artificial Intelligence
+Machine Learning
+Full Stack Development
+Software Engineering
+Computer Vision
+Workflow Automation
+Contact Section
+Let's Build Something Amazing Together
+
+I'm actively looking for internships, freelance opportunities, and software development roles.
+
+📧 harish23alr@gmail.com
+
+📱 +91 9080562629
+
+💼 LinkedIn
+
+🐙 GitHub
+
+Additional Sections I strongly recommend adding
+
+Your current resume is good, but for a portfolio add:
+
+Stats Section
+4+ Projects Completed
+3 Programming Languages
+2 Oracle Certifications
+AI & ML Student
+Journey Timeline
+
+2023 → Started B.Tech AIML
+2024 → Began AI & Full Stack Development
+2025 → Built AI & Computer Vision Projects
+2026 → ServiceNow Internship + Freelancing

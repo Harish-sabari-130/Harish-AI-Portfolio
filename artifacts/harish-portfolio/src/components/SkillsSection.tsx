@@ -2,40 +2,40 @@ import { motion } from 'framer-motion';
 
 const skills = [
   {
-    category: "Languages",
-    items: ["Python", "JavaScript", "TypeScript", "Java", "C++"],
+    category: "Programming Languages",
+    items: ["Java", "Python", "C"],
     color: "border-primary",
     text: "text-primary"
   },
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
+    category: "Machine Learning & AI",
+    items: ["TensorFlow", "Scikit-Learn", "OpenCV", "NumPy", "Pandas"],
+    color: "border-purple-500",
+    text: "text-purple-400"
+  },
+  {
+    category: "Full Stack Development",
+    items: ["React", "Node.js", "Express.js", "MongoDB", "MySQL", "HTML", "CSS"],
     color: "border-primary",
     text: "text-primary"
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "FastAPI", "Django", "REST APIs"],
+    category: "Tools & Platforms",
+    items: ["Git", "Jupyter Notebook", "ServiceNow"],
     color: "border-accent",
     text: "text-accent"
   },
   {
-    category: "AI/ML",
-    items: ["TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "LangChain", "Hugging Face"],
+    category: "Areas of Interest",
+    items: ["Artificial Intelligence", "Machine Learning", "Full Stack Development"],
     color: "border-purple-500",
     text: "text-purple-400"
   },
   {
-    category: "Databases",
-    items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+    category: "Journey",
+    items: ["2023 → B.Tech AIML", "2024 → AI & Full Stack", "2025 → Computer Vision", "2026 → ServiceNow & Freelance"],
     color: "border-accent",
     text: "text-accent"
-  },
-  {
-    category: "DevOps/Tools",
-    items: ["Docker", "Git", "GitHub", "AWS", "Linux", "VS Code"],
-    color: "border-purple-500",
-    text: "text-purple-400"
   }
 ];
 
@@ -59,7 +59,7 @@ const itemVariants = {
 export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 relative bg-[#050816]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

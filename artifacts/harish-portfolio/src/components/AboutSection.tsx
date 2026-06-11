@@ -54,20 +54,20 @@ export default function AboutSection() {
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary" />
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I am Harish, a passionate full-stack developer and AI engineer pursuing a B.Tech in CSE with an AI/ML specialization. 
+                I am Harish, a B.Tech Artificial Intelligence and Machine Learning student at Kongu Engineering College with a strong interest in AI-powered applications, full-stack development, and software engineering.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I thrive on building intelligent systems and futuristic applications that push the boundaries of what's possible. From neural networks to scalable cloud architectures, I bridge the gap between complex algorithms and immersive user experiences.
+                I enjoy transforming ideas into practical solutions and have experience developing projects in machine learning, computer vision, workflow automation, and web development. My goal is to contribute to innovative products while continuously improving my technical and problem-solving abilities.
               </p>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-8">
             {[
-              { end: 15, suffix: '+', label: 'Projects Completed' },
-              { end: 2, suffix: '+ YR', label: 'Experience' },
-              { end: 10, suffix: '+', label: 'Technologies Mastered' },
-              { end: 5, suffix: '+', label: 'Certifications' }
+              { end: 4, suffix: '+', label: 'Projects Completed' },
+              { end: 3, suffix: '',  label: 'Programming Languages' },
+              { end: 2, suffix: '',  label: 'Oracle Certifications' },
+              { end: 3, suffix: '+', label: 'Years of Learning' }
             ].map((stat, i) => (
               <motion.div
                 key={i}
