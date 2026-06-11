@@ -10,53 +10,53 @@ interface Message {
 
 const RESPONSES: Record<string, string[]> = {
   greeting: [
-    "Hey! I'm Saha — Harish's AI companion. What would you like to know about him?",
-    "Hello! Saha here. I can walk you through Harish's work, skills, and experience. What are you curious about?",
-    "Hi there! Think of me as Harish's digital side — happy to answer anything. Where would you like to start?",
+    "Hey! I'm Saha — Harish Sabari's AI companion. What would you like to know about him?",
+    "Hello! Saha here. I can walk you through Harish Sabari's work, skills, and experience. What are you curious about?",
+    "Hi there! Think of me as Harish Sabari's digital side — happy to answer anything. Where would you like to start?",
   ],
   skills: [
-    "Harish is strong across the full stack — Python, TypeScript, React, Node.js on the engineering side, and TensorFlow, PyTorch, LangChain for AI work. He bridges both worlds naturally.",
-    "Frontend: React, Next.js, Tailwind, Framer Motion. Backend: FastAPI, Node.js, Express. AI: TensorFlow, PyTorch, LangChain, OpenCV. Databases: PostgreSQL, MongoDB, Redis. That's the short version.",
-    "His core strengths are full-stack development and AI/ML engineering — Python and TypeScript are his go-to languages. He's particularly sharp with LLM integration and production-grade systems.",
+    "Harish Sabari codes in Java, Python, and C. On the ML side he works with TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas. For the web he uses React, Node.js, Express.js, MongoDB, and MySQL.",
+    "His stack: Languages — Java, Python, C. ML/AI — TensorFlow, Scikit-Learn, OpenCV, NumPy, Pandas. Full Stack — React, Node.js, Express.js, MongoDB, MySQL. Tools — Git, Jupyter Notebook, ServiceNow.",
+    "Core strengths are AI/ML and full-stack development. Python is his go-to for machine learning and computer vision work; React + Node.js for the web layer. He also knows ServiceNow from his internship.",
   ],
   projects: [
-    "He's shipped 15+ projects. Highlights: NeuralChat AI (real-time LLM chat), CodeVision (AI-powered code analysis), DeepSight (computer vision dashboard), and DataNexus (analytics platform). Scroll down to Projects for details.",
-    "Quite a range — from conversational AI systems to computer vision tools to full-stack SaaS products. Each one solves a real problem. Check the Projects section below for live demos.",
-    "His project work spans LLM apps, vision models, and developer tooling. NeuralChat and DeepSight are probably the most interesting technically. Want to know more about any specific one?",
+    "Four key projects: Safina (women safety app with real-time location + emergency alerts), Live Vision (YOLO-based real-time object detection), Nomad Visa Hub (ServiceNow visa management portal), and an AI Expense Tracker. Scroll to Projects for links.",
+    "His most technical project is Live Vision — real-time YOLO object detection on live video streams. Safina is the most impactful — emergency safety platform with GPS tracking and escalation logic.",
+    "Safina and Live Vision are on GitHub. Nomad Visa Hub was built on ServiceNow during his internship. The Expense Tracker uses AI-based workflows for automated financial analysis.",
   ],
   experience: [
-    "Two meaningful internships so far: React/Node.js development at TechCorp Solutions, and NLP + computer vision model work at AI Innovations Lab using PyTorch and FastAPI. Real production experience, not just coursework.",
-    "He's done hands-on engineering work — frontend at TechCorp, AI model development at AI Innovations Lab. Both roles involved shipping to production, not just prototypes.",
+    "Harish Sabari did a ServiceNow internship from January to April 2026 — covering ITSM, Flow Designer, App Engine Studio, and AI-powered workflow automation. He also freelanced, delivering a live client website (firstinalltime.in).",
+    "Two roles: ServiceNow Intern (Jan–Apr 2026) where he built low-code apps and automation workflows, and freelance web development where he handled the full project lifecycle for a client.",
   ],
   contact: [
-    "Best way to reach him: harish@example.com. Also active on LinkedIn and GitHub — links are in the Contact section at the bottom.",
-    "Drop him a message via the Contact form below. He responds fast. You can also connect on LinkedIn directly.",
+    "Best way to reach Harish Sabari: harish23alr@gmail.com. Also active on LinkedIn (harish-sabari-130hssh) and GitHub (Harish-sabari-130). Contact form is at the bottom of this page.",
+    "Drop him a message using the Contact form below, or email harish23alr@gmail.com directly. He's also on LinkedIn.",
   ],
   hire: [
-    "Yes — he's actively open to roles in AI engineering and full-stack development. Particularly drawn to AI-first products and high-impact engineering teams.",
-    "Absolutely open to the right opportunity. He's looking for work at the intersection of AI and great engineering. Reach out via the Contact section.",
+    "Yes — Harish Sabari is open to roles in AI/ML engineering and full-stack development. He's particularly interested in AI-first products and real-world problem solving.",
+    "Absolutely open to the right opportunity. He's currently pursuing B.Tech AIML and building his skills across ML, computer vision, and full-stack dev. Reach out via the Contact section.",
   ],
   certifications: [
-    "Certified in AWS Cloud Practitioner, TensorFlow Developer (Google), React Advanced (Meta), and a few others. All earned through actual study, not just paid for.",
-    "His certifications cover cloud architecture, deep learning, and frontend engineering. Check the Certifications section for the complete list with badges.",
+    "Two Oracle certifications: Java SE 17 Developer and Oracle APEX Cloud Developer. Both verified — you can click the cards in the Certifications section to view them on Google Drive.",
+    "Harish Sabari holds Oracle Java SE 17 Developer and Oracle APEX Cloud Developer certifications. The Certifications section has direct links to view them.",
   ],
   about: [
-    "Harish Sabari P V — B.Tech in CSE with an AI/ML specialization. He builds things at the intersection of intelligent systems and great user experiences. This portfolio is a pretty good example of that.",
-    "Full-stack developer and AI engineer. He cares a lot about the craft — both the technical depth and the experience layer. That's why this portfolio feels the way it does.",
-    "He's driven by the challenge of making AI systems that actually feel good to use. Engineering under the hood, design on the surface.",
+    "Harish Sabari P V — B.Tech AI & Machine Learning student at Kongu Engineering College (2023–2027). He builds practical AI applications, computer vision systems, and full-stack web apps.",
+    "AI/ML student and developer from Tamil Nadu, India. He's worked on women safety apps, real-time object detection, ServiceNow automation, and freelance web projects. Driven by real-world impact.",
+    "He's passionate about applying AI to solve real problems — from computer vision pipelines to workflow automation. Kongu Engineering College, AIML specialization, currently building and learning.",
   ],
   ai: [
-    "AI is his main interest — specifically LLM applications, computer vision, and building AI products that feel intuitive. He's been building in this space since before it was trendy.",
-    "He works with TensorFlow, PyTorch, LangChain, and various vision frameworks. His focus is applied AI — systems that solve real problems and integrate cleanly into products.",
+    "AI/ML is his main focus — specifically computer vision (YOLO, OpenCV), machine learning (TensorFlow, Scikit-Learn), and intelligent workflow automation via ServiceNow. He built Live Vision as a real-world computer vision project.",
+    "He works with TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas for ML/AI work. His computer vision project (Live Vision) uses YOLO for real-time object detection on live video streams.",
   ],
   resume: [
-    "You can grab his resume using the 'Download Resume' button in the hero section at the top of the page.",
-    "His resume is available via the Download button at the top. It's up to date.",
+    "You can download Harish Sabari's resume using the '[ DOWNLOAD CV ]' button in the hero section at the top of the page.",
+    "His resume is available via the Download CV button at the top. It opens directly from Google Drive.",
   ],
   default: [
-    "Good question. I can tell you about Harish's skills, projects, experience, certifications, or how to get in touch. What interests you?",
+    "Good question. I can tell you about Harish Sabari's skills, projects, experience, certifications, or how to get in touch. What interests you?",
     "Try asking about his tech stack, projects, or experience — or just say hi. I'll give you the real picture.",
-    "Happy to help. Ask me about his AI work, frontend engineering, internships, or anything else on the portfolio.",
+    "Happy to help. Ask me about his AI work, full-stack dev, ServiceNow internship, or anything else on the portfolio.",
   ],
 };
 
@@ -174,7 +174,7 @@ export default function AIAvatar() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'ai',
-      content: "Hey — I'm Saha, Harish's AI companion. Ask me anything about his skills, projects, or experience.",
+      content: "Hey — I'm Saha, Harish Sabari's AI companion. Ask me anything about his skills, projects, or experience.",
       timestamp: new Date(),
     }
   ]);

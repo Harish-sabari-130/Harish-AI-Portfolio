@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
-import { Award } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
 
 const certs = [
   {
     name: "Java SE 17 Developer",
     issuer: "Oracle",
-    badge: "ORACLE"
+    badge: "ORACLE",
+    link: "https://drive.google.com/file/d/1sGN4JfGIa7o5Ht5HBEvtdwE9UDlIUuOf/view?usp=sharing"
   },
   {
     name: "Oracle APEX Cloud Developer",
     issuer: "Oracle",
-    badge: "ORACLE"
+    badge: "ORACLE",
+    link: "https://drive.google.com/file/d/1-KYNSlqkpGiy8lzYfuytkZbMpY7euilz/view?usp=sharing"
   }
 ];
 
@@ -29,24 +31,36 @@ export default function CertificationsSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
           {certs.map((cert, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.15 }}
-              className="group relative p-[1px] overflow-hidden rounded-sm bg-gradient-to-br from-border to-border hover:from-primary hover:to-purple-500 transition-colors duration-500"
+              className="group relative p-[1px] overflow-hidden rounded-sm bg-gradient-to-br from-border to-border hover:from-primary hover:to-purple-500 transition-colors duration-500 cursor-pointer block"
+              data-interactive="true"
             >
               <div className="h-full bg-card p-6 flex flex-col relative z-10 items-start">
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-full text-primary mb-4 group-hover:scale-110 transition-transform">
                   <Award size={24} />
                 </div>
-                <h3 className="text-lg font-mono font-bold text-foreground mb-2 leading-tight">
+                <h3 className="text-lg font-mono font-bold text-foreground mb-2 leading-tight group-hover:text-primary transition-colors">
                   {cert.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-auto">
+                <p className="text-sm text-muted-foreground mt-auto mb-3">
                   {cert.issuer}
                 </p>
+
+                {/* View link indicator */}
+                <div className="flex items-center gap-1.5 text-[11px] font-mono"
+                  style={{ color: 'rgba(0,212,255,0.6)' }}>
+                  <ExternalLink size={11} />
+                  VIEW CERTIFICATE
+                </div>
+
                 <div className="absolute top-4 right-4 border border-green-500/50 text-green-400 bg-green-500/10 px-2 py-0.5 text-[10px] font-mono tracking-wider">
                   VERIFIED
                 </div>
@@ -55,7 +69,7 @@ export default function CertificationsSection() {
                   {cert.badge}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

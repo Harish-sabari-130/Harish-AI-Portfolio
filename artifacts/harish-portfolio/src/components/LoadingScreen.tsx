@@ -6,7 +6,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   const [textIndex, setTextIndex] = useState(0);
 
   const texts = [
-    "[ HARISH OS v2.0.5 ]",
+    "[ HARISH SABARI OS v2.0.5 ]",
     "Initializing Neural Systems...",
     "Loading AI Interface...",
     "Synchronizing Digital Consciousness...",

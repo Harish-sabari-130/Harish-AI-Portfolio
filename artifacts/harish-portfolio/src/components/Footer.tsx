@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         <div className="text-muted-foreground text-sm font-sans">
-          &copy; {new Date().getFullYear()} Harish. Crafted with AI.
+          &copy; {new Date().getFullYear()} Harish Sabari. Crafted with AI.
         </div>
       </div>
     </footer>

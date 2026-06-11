@@ -54,7 +54,7 @@ export default function AboutSection() {
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary" />
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I am Harish, a B.Tech Artificial Intelligence and Machine Learning student at Kongu Engineering College with a strong interest in AI-powered applications, full-stack development, and software engineering.
+                I am Harish Sabari, a B.Tech Artificial Intelligence and Machine Learning student at Kongu Engineering College with a strong interest in AI-powered applications, full-stack development, and software engineering.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I enjoy transforming ideas into practical solutions and have experience developing projects in machine learning, computer vision, workflow automation, and web development. My goal is to contribute to innovative products while continuously improving my technical and problem-solving abilities.

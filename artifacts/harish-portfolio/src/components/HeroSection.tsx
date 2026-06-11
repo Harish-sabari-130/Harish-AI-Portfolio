@@ -120,7 +120,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
           </div>
           <div className="text-[9px] font-mono tracking-widest"
             style={{ color: 'rgba(189,147,249,0.7)' }}>
-            AI · FULL STACK · VISIONARY
+            AI/ML · COMPUTER VISION · SERVICENOW
           </div>
         </div>
 
@@ -263,7 +263,7 @@ export default function HeroSection() {
               className="inline-block w-6 h-[1px]"
               style={{ background: '#00d4ff' }}
             />
-            AI &amp; FULL STACK DEVELOPER
+            AI/ML STUDENT &amp; FULL-STACK DEVELOPER
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ repeat: Infinity, duration: 0.8 }}
@@ -333,8 +333,11 @@ export default function HeroSection() {
               <span className="relative z-10">[ VIEW PROJECTS ]</span>
             </motion.button>
 
-            <motion.button
-              className="relative px-5 sm:px-8 py-3 sm:py-3.5 font-mono font-bold text-xs sm:text-sm overflow-hidden group transition-all"
+            <motion.a
+              href="https://drive.google.com/file/d/1O_EFUsFNQaw5QUNAOYLXEgXuvTyWEC9M/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="relative px-5 sm:px-8 py-3 sm:py-3.5 font-mono font-bold text-xs sm:text-sm overflow-hidden group transition-all inline-block"
               style={{
                 color: '#00d4ff',
                 border: '1px solid rgba(0,212,255,0.4)',
@@ -350,17 +353,17 @@ export default function HeroSection() {
               data-interactive="true"
             >
               <span className="relative z-10">[ DOWNLOAD CV ]</span>
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Social mini-links */}
           <div className="flex items-center gap-5 mt-6 sm:mt-8">
             {[
-              { label: 'GitHub',   href: 'https://github.com/Harish-sabari-130' },
-              { label: 'LinkedIn', href: 'https://linkedin.com/in/harish-sabari-130hssh/' },
-              { label: 'Email',    href: 'mailto:harish23alr@gmail.com' },
+              { label: 'GitHub',   href: 'https://github.com/Harish-sabari-130',          external: true },
+              { label: 'LinkedIn', href: 'https://linkedin.com/in/harish-sabari-130hssh/', external: true },
+              { label: 'Email',    href: 'mailto:harish23alr@gmail.com',                   external: false },
             ].map(s => (
-              <a key={s.label} href={s.href} target="_blank" rel="noreferrer"
+              <a key={s.label} href={s.href} {...(s.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                 className="text-[10px] font-mono tracking-widest transition-colors hover:text-[#00d4ff]"
                 style={{ color: 'rgba(255,255,255,0.3)' }}
                 data-interactive="true">
