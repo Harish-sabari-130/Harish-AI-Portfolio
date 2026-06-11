@@ -5,8 +5,6 @@ import CSSParticles from './CSSParticles';
 const ROLES = [
   'AI / ML Student',
   'Full-Stack Developer',
-  'Computer Vision Builder',
-  'ServiceNow Developer',
   'AI Enthusiast',
 ];
 
@@ -167,7 +165,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
           backdropFilter: 'blur(12px)',
         }}
       >
-        ◈ SKILLS: 20+
+        ◈ SKILLS: 14+
       </motion.div>
 
       <motion.div
@@ -182,7 +180,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
           backdropFilter: 'blur(12px)',
         }}
       >
-        ◈ PROJECTS: 15+
+        ◈ PROJECTS: 4
       </motion.div>
     </motion.div>
   );
@@ -361,7 +359,7 @@ export default function HeroSection() {
             {[
               { label: 'GitHub',   href: 'https://github.com/Harish-sabari-130',          external: true },
               { label: 'LinkedIn', href: 'https://linkedin.com/in/harish-sabari-130hssh/', external: true },
-              { label: 'Email',    href: 'mailto:harish23alr@gmail.com',                   external: false },
+              { label: 'Email',    href: 'https://mail.google.com/mail/?view=cm&to=harish23alr@gmail.com', external: true },
             ].map(s => (
               <a key={s.label} href={s.href} {...(s.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                 className="text-[10px] font-mono tracking-widest transition-colors hover:text-[#00d4ff]"

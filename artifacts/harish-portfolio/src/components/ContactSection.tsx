@@ -35,7 +35,7 @@ export default function ContactSection() {
 
             <div className="space-y-4">
               {[
-                { icon: Mail,     label: "Email",    value: "harish23alr@gmail.com",  href: "mailto:harish23alr@gmail.com",                   testId: "contact-email" },
+                { icon: Mail,     label: "Email",    value: "harish23alr@gmail.com",  href: "https://mail.google.com/mail/?view=cm&to=harish23alr@gmail.com", testId: "contact-email" },
                 { icon: Linkedin, label: "LinkedIn", value: "harish-sabari-130hssh", href: "https://linkedin.com/in/harish-sabari-130hssh/", testId: "contact-linkedin" },
                 { icon: Github,   label: "GitHub",   value: "Harish-sabari-130",     href: "https://github.com/Harish-sabari-130",           testId: "contact-github" },
                 { icon: MapPin,   label: "Location", value: "Tamil Nadu, India",     href: null,                                             testId: "contact-location" }

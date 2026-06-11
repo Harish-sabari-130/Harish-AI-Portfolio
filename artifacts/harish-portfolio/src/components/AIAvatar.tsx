@@ -9,72 +9,105 @@ interface Message {
 }
 
 const RESPONSES: Record<string, string[]> = {
+  saha: [
+    "I'm Saha — Harish Sabari's AI companion built into this portfolio. I can answer anything about his skills, projects, experience, and more. What would you like to know?",
+    "Saha here! I'm the AI assistant embedded in this portfolio. Think of me as Harish Sabari's digital spokesperson — I know everything about his work. Ask away!",
+    "I'm Saha, an AI companion created for this portfolio. I can tell you about Harish Sabari's tech stack, projects, certifications, or how to reach him. What are you curious about?",
+  ],
   greeting: [
     "Hey! I'm Saha — Harish Sabari's AI companion. What would you like to know about him?",
     "Hello! Saha here. I can walk you through Harish Sabari's work, skills, and experience. What are you curious about?",
-    "Hi there! Think of me as Harish Sabari's digital side — happy to answer anything. Where would you like to start?",
+    "Hi there! Ask me anything about Harish Sabari — his projects, skills, experience, or how to get in touch.",
   ],
   skills: [
-    "Harish Sabari codes in Java, Python, and C. On the ML side he works with TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas. For the web he uses React, Node.js, Express.js, MongoDB, and MySQL.",
-    "His stack: Languages — Java, Python, C. ML/AI — TensorFlow, Scikit-Learn, OpenCV, NumPy, Pandas. Full Stack — React, Node.js, Express.js, MongoDB, MySQL. Tools — Git, Jupyter Notebook, ServiceNow.",
-    "Core strengths are AI/ML and full-stack development. Python is his go-to for machine learning and computer vision work; React + Node.js for the web layer. He also knows ServiceNow from his internship.",
+    "Harish Sabari's core stack: Languages — Java, Python, C. ML/AI — TensorFlow, Scikit-Learn, OpenCV, NumPy, Pandas. Full Stack — React, Node.js, Express.js, MongoDB, MySQL. Tools — Git, Jupyter Notebook, ServiceNow.",
+    "He codes in Java, Python, and C. For machine learning he uses TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas. On the web side it's React, Node.js, Express.js, MongoDB, and MySQL.",
+    "Core strengths: AI/ML (TensorFlow, OpenCV, Scikit-Learn), full-stack web (React + Node.js + Express), and ServiceNow platform development. Python is his main language for AI work.",
   ],
   projects: [
-    "Four key projects: Safina (women safety app with real-time location + emergency alerts), Live Vision (YOLO-based real-time object detection), Nomad Visa Hub (ServiceNow visa management portal), and an AI Expense Tracker. Scroll to Projects for links.",
-    "His most technical project is Live Vision — real-time YOLO object detection on live video streams. Safina is the most impactful — emergency safety platform with GPS tracking and escalation logic.",
-    "Safina and Live Vision are on GitHub. Nomad Visa Hub was built on ServiceNow during his internship. The Expense Tracker uses AI-based workflows for automated financial analysis.",
+    "Four key projects: Safina (women safety app — GPS tracking, emergency alerts, AI analysis), Live Vision (real-time YOLO object detection), Nomad Visa Hub (ServiceNow visa management portal), and an AI Expense Tracker Agent. Scroll to Projects for GitHub links.",
+    "His most technical: Live Vision — YOLO-based real-time object detection on live video. Most impactful: Safina — emergency safety platform for women with location tracking. Both are on GitHub.",
+    "Safina and Live Vision are open source on GitHub. Nomad Visa Hub was built on ServiceNow during his internship. The Expense Tracker uses AI agents for automated financial analysis.",
   ],
   experience: [
-    "Harish Sabari did a ServiceNow internship from January to April 2026 — covering ITSM, Flow Designer, App Engine Studio, and AI-powered workflow automation. He also freelanced, delivering a live client website (firstinalltime.in).",
-    "Two roles: ServiceNow Intern (Jan–Apr 2026) where he built low-code apps and automation workflows, and freelance web development where he handled the full project lifecycle for a client.",
+    "Two roles: ServiceNow Developer Intern (Jan–Apr 2026) — built ITSM workflows, Flow Designer automations, and low-code apps. Also freelance web developer with a live client site at firstinalltime.in.",
+    "ServiceNow internship from January to April 2026 — App Engine Studio, Flow Designer, ITSM, AI workflow automation. He also freelanced independently delivering a full client website.",
   ],
   contact: [
-    "Best way to reach Harish Sabari: harish23alr@gmail.com. Also active on LinkedIn (harish-sabari-130hssh) and GitHub (Harish-sabari-130). Contact form is at the bottom of this page.",
-    "Drop him a message using the Contact form below, or email harish23alr@gmail.com directly. He's also on LinkedIn.",
+    "Reach Harish Sabari at harish23alr@gmail.com. He's also on LinkedIn (harish-sabari-130hssh) and GitHub (Harish-sabari-130). Or use the Contact form at the bottom of this page.",
+    "Best way: email harish23alr@gmail.com or connect on LinkedIn. The Contact section below has a direct message form too.",
   ],
   hire: [
-    "Yes — Harish Sabari is open to roles in AI/ML engineering and full-stack development. He's particularly interested in AI-first products and real-world problem solving.",
-    "Absolutely open to the right opportunity. He's currently pursuing B.Tech AIML and building his skills across ML, computer vision, and full-stack dev. Reach out via the Contact section.",
+    "Yes — Harish Sabari is actively open to roles in AI/ML engineering and full-stack development. He's drawn to AI-first products and real-world impact. Reach out via the Contact section.",
+    "Open to the right opportunity. He's a B.Tech AIML student building across ML, computer vision, and full-stack — looking for roles where those intersect. Contact section is at the bottom.",
   ],
   certifications: [
-    "Two Oracle certifications: Java SE 17 Developer and Oracle APEX Cloud Developer. Both verified — you can click the cards in the Certifications section to view them on Google Drive.",
-    "Harish Sabari holds Oracle Java SE 17 Developer and Oracle APEX Cloud Developer certifications. The Certifications section has direct links to view them.",
+    "Two Oracle certifications: Java SE 17 Developer and Oracle APEX Cloud Developer. Both verified — click the cards in the Certifications section to view them directly on Google Drive.",
+    "Harish Sabari is Oracle-certified in Java SE 17 and Oracle APEX Cloud Development. The Certifications section has clickable links to view each one.",
   ],
   about: [
-    "Harish Sabari P V — B.Tech AI & Machine Learning student at Kongu Engineering College (2023–2027). He builds practical AI applications, computer vision systems, and full-stack web apps.",
-    "AI/ML student and developer from Tamil Nadu, India. He's worked on women safety apps, real-time object detection, ServiceNow automation, and freelance web projects. Driven by real-world impact.",
-    "He's passionate about applying AI to solve real problems — from computer vision pipelines to workflow automation. Kongu Engineering College, AIML specialization, currently building and learning.",
+    "Harish Sabari P V is a B.Tech AI & Machine Learning student at Kongu Engineering College (2023–2027), Tamil Nadu. He builds AI applications, computer vision systems, and full-stack web apps.",
+    "AI/ML student and developer from Tamil Nadu, India. He's built women-safety platforms, real-time vision systems, ServiceNow apps, and freelance websites. Driven by practical, real-world impact.",
+    "B.Tech AIML at Kongu Engineering College. Passionate about applying AI to real problems — from computer vision pipelines to intelligent workflow automation.",
   ],
   ai: [
-    "AI/ML is his main focus — specifically computer vision (YOLO, OpenCV), machine learning (TensorFlow, Scikit-Learn), and intelligent workflow automation via ServiceNow. He built Live Vision as a real-world computer vision project.",
-    "He works with TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas for ML/AI work. His computer vision project (Live Vision) uses YOLO for real-time object detection on live video streams.",
+    "His AI focus: computer vision (YOLO, OpenCV), machine learning (TensorFlow, Scikit-Learn, Pandas), and ServiceNow AI workflows. Live Vision is his flagship computer vision project.",
+    "He works with TensorFlow, Scikit-Learn, OpenCV, NumPy, and Pandas. His computer vision project (Live Vision) does real-time YOLO object detection on live video streams.",
   ],
   resume: [
-    "You can download Harish Sabari's resume using the '[ DOWNLOAD CV ]' button in the hero section at the top of the page.",
-    "His resume is available via the Download CV button at the top. It opens directly from Google Drive.",
+    "Hit the '[ DOWNLOAD CV ]' button at the top of the page — it opens Harish Sabari's resume directly from Google Drive.",
+    "His resume is linked to the Download CV button in the hero section. One click opens it on Google Drive.",
   ],
   default: [
-    "Good question. I can tell you about Harish Sabari's skills, projects, experience, certifications, or how to get in touch. What interests you?",
-    "Try asking about his tech stack, projects, or experience — or just say hi. I'll give you the real picture.",
-    "Happy to help. Ask me about his AI work, full-stack dev, ServiceNow internship, or anything else on the portfolio.",
+    "I can tell you about Harish Sabari's skills, projects, experience, certifications, or how to contact him. What would you like to know?",
+    "Good question — try asking about his tech stack, projects, ServiceNow internship, or Oracle certifications. I know it all.",
+    "Ask me about his AI work, full-stack projects, experience, or how to get in touch. I'm here to help.",
   ],
 };
 
+function getCategory(input: string): string {
+  const t = input.toLowerCase().trim();
+
+  // Self-referential / about SAHA itself — check first
+  if (/\b(who are you|what are you|introduce yourself|your name|are you (an )?ai|are you (a )?bot|are you real|tell me about yourself)\b/.test(t)) return 'saha';
+  if (/\b(saha|your purpose|what can you do|what do you know)\b/.test(t)) return 'saha';
+
+  // Greetings
+  if (/^(hi|hello|hey|sup|yo|hii|hola|greetings|howdy)[!?.,\s]*$/.test(t)) return 'greeting';
+  if (/\b(hi there|hello there|hey there)\b/.test(t)) return 'greeting';
+
+  // Resume / CV
+  if (/\b(resume|cv|curriculum|download)\b/.test(t)) return 'resume';
+
+  // Skills / tech stack
+  if (/\b(skill|tech|stack|language|tool|framework|python|java|react|node|tensorflow|opencv|scikit|servicenow)\b/.test(t)) return 'skills';
+
+  // Projects
+  if (/\b(project|safina|live vision|nomad|expense|yolo|github|portfolio|build|demo)\b/.test(t)) return 'projects';
+
+  // Experience / work
+  if (/\b(experience|intern|internship|job|role|company|work|freelance|firstinalltime)\b/.test(t)) return 'experience';
+
+  // Contact
+  if (/\b(contact|email|reach|connect|message|dm|linkedin|gmail)\b/.test(t)) return 'contact';
+
+  // Hiring
+  if (/\b(hire|hiring|available|opportunity|recruit|position|open to work|looking for)\b/.test(t)) return 'hire';
+
+  // Certifications
+  if (/\b(cert|certification|certificate|oracle|apex|java se|verified)\b/.test(t)) return 'certifications';
+
+  // About Harish Sabari
+  if (/\b(about|who is|harish|sabari|person|background|bio|kongu|college|student)\b/.test(t)) return 'about';
+
+  // AI / ML topics
+  if (/\b(ai|ml|machine learning|deep learning|computer vision|neural|model|gpt|llm)\b/.test(t)) return 'ai';
+
+  return 'default';
+}
+
 function getReply(input: string): string {
-  const text = input.toLowerCase();
-  let category = 'default';
-
-  if (/\b(hi|hello|hey|sup|greet|yo)\b/.test(text)) category = 'greeting';
-  else if (/\b(skill|tech|stack|language|tool|framework|python|react|typescript|node|tensorflow|pytorch)\b/.test(text)) category = 'skills';
-  else if (/\b(project|work|portfolio|build|ship|create|demo)\b/.test(text)) category = 'projects';
-  else if (/\b(experience|intern|job|role|company|work at)\b/.test(text)) category = 'experience';
-  else if (/\b(contact|email|reach|connect|message|dm)\b/.test(text)) category = 'contact';
-  else if (/\b(hire|available|opportunity|recruit|position|open to)\b/.test(text)) category = 'hire';
-  else if (/\b(cert|certification|certificate|aws|google|meta)\b/.test(text)) category = 'certifications';
-  else if (/\b(about|who|harish|person|background|bio)\b/.test(text)) category = 'about';
-  else if (/\b(ai|ml|machine learning|llm|gpt|vision|model|neural|deep learning)\b/.test(text)) category = 'ai';
-  else if (/\b(resume|cv|download)\b/.test(text)) category = 'resume';
-
+  const category = getCategory(input);
   const opts = RESPONSES[category];
   return opts[Math.floor(Math.random() * opts.length)];
 }
@@ -100,7 +133,6 @@ function SAHAFace({ isActive, isHovered, size = 'md' }: {
         transition: 'box-shadow 0.3s ease',
       }}
     >
-      {/* Pixel-art character — fills circle, head at top */}
       <img
         src="/saha-pixel.png"
         alt="SAHA"
@@ -115,47 +147,31 @@ function SAHAFace({ isActive, isHovered, size = 'md' }: {
           imageRendering: 'pixelated',
         }}
       />
-
-      {/* Holographic cyan wash */}
       <div className="absolute inset-0 rounded-full pointer-events-none" style={{
         background: 'linear-gradient(160deg, rgba(0,180,255,0.15) 0%, rgba(0,80,200,0.08) 50%, rgba(100,40,220,0.12) 100%)',
         mixBlendMode: 'screen',
       }} />
-
-      {/* Left edge glow */}
       <div className="absolute inset-y-0 left-0 w-[18%] pointer-events-none" style={{
         background: 'linear-gradient(to right, rgba(0,212,255,0.35), transparent)',
       }} />
-
-      {/* Right edge glow */}
       <div className="absolute inset-y-0 right-0 w-[18%] pointer-events-none" style={{
         background: 'linear-gradient(to left, rgba(124,58,237,0.3), transparent)',
       }} />
-
-      {/* Bottom vignette */}
       <div className="absolute bottom-0 left-0 right-0 h-[22%] rounded-b-full pointer-events-none" style={{
         background: 'linear-gradient(to top, rgba(5,8,22,0.75), transparent)',
       }} />
-
-      {/* Scan-line overlay */}
       <div className="absolute inset-0 rounded-full pointer-events-none" style={{
         backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.04) 2px, rgba(0,212,255,0.04) 3px)',
         backgroundSize: '100% 4px',
       }} />
-
-      {/* Sweep line */}
       <div className="absolute left-0 right-0 h-[1.5px] saha-scanline pointer-events-none" style={{
         background: 'linear-gradient(90deg, transparent, rgba(0,212,255,0.6), transparent)',
       }} />
-
-      {/* Dashed outer ring */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="48" fill="none"
           stroke="#00d4ff" strokeWidth="0.8" strokeOpacity="0.4"
           strokeDasharray="5 3"/>
       </svg>
-
-      {/* Status dot */}
       {size === 'md' && (
         <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full pointer-events-none" style={{
           background: '#00d4ff',
@@ -181,6 +197,7 @@ export default function AIAvatar() {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = useCallback(() => {
@@ -197,28 +214,39 @@ export default function AIAvatar() {
     }
   }, [isOpen, isMinimized]);
 
-  const handleSend = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = input.trim();
-    if (!text) return;
-
-    setMessages(prev => [...prev, { role: 'user', content: text, timestamp: new Date() }]);
+  const sendMessage = useCallback((text: string) => {
+    if (!text.trim()) return;
+    setMessages(prev => [...prev, { role: 'user', content: text.trim(), timestamp: new Date() }]);
     setInput('');
     setIsTyping(true);
-
     setTimeout(() => {
       setIsTyping(false);
       setMessages(prev => [...prev, {
         role: 'ai',
-        content: getReply(text),
+        content: getReply(text.trim()),
         timestamp: new Date(),
       }]);
-    }, 700 + Math.random() * 400);
+    }, 600 + Math.random() * 300);
+  }, []);
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    sendMessage(input);
   };
 
   const handleOpen = () => {
     setIsOpen(true);
     setIsMinimized(false);
+  };
+
+  /* Prevent scroll from bleeding into the page */
+  const handleWheel = (e: React.WheelEvent) => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const atTop = scrollTop === 0 && e.deltaY < 0;
+    const atBottom = scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+    if (!atTop && !atBottom) e.stopPropagation();
   };
 
   return (
@@ -234,7 +262,7 @@ export default function AIAvatar() {
             className="fixed right-[104px] bottom-4 w-[360px] max-w-[calc(100vw-120px)] z-50 flex flex-col"
             style={{
               height: 'min(520px, calc(100vh - 80px))',
-              background: 'rgba(5,8,22,0.92)',
+              background: 'rgba(5,8,22,0.96)',
               backdropFilter: 'blur(24px)',
               border: '1px solid rgba(0,212,255,0.25)',
               borderRadius: '16px',
@@ -242,7 +270,7 @@ export default function AIAvatar() {
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(0,212,255,0.15)]"
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(0,212,255,0.15)] flex-shrink-0"
               style={{ background: 'rgba(0,212,255,0.05)' }}>
               <div className="flex items-center gap-3">
                 <div className="flex-shrink-0">
@@ -277,15 +305,20 @@ export default function AIAvatar() {
               </div>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-sm"
-              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,212,255,0.2) transparent' }}>
+            {/* Messages — isolated scroll container */}
+            <div
+              ref={messagesContainerRef}
+              onWheel={handleWheel}
+              onTouchMove={e => e.stopPropagation()}
+              className="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-sm overscroll-contain"
+              style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(0,212,255,0.2) transparent' }}
+            >
               {messages.map((msg, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25 }}
+                  transition={{ duration: 0.22 }}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} items-end gap-2`}
                 >
                   {msg.role === 'ai' && (
@@ -294,14 +327,14 @@ export default function AIAvatar() {
                     </div>
                   )}
                   <div
-                    className={`max-w-[82%] px-3 py-2.5 rounded-xl leading-relaxed ${
+                    className={`max-w-[82%] px-3 py-2.5 rounded-xl leading-relaxed text-[13px] ${
                       msg.role === 'user'
                         ? 'text-white rounded-br-sm'
                         : 'text-white/90 rounded-bl-sm border border-[rgba(0,212,255,0.15)]'
                     }`}
                     style={msg.role === 'user'
                       ? { background: 'linear-gradient(135deg, #0066ff, #7c3aed)' }
-                      : { background: 'rgba(0,212,255,0.06)' }
+                      : { background: 'rgba(0,212,255,0.07)' }
                     }
                   >
                     {msg.content}
@@ -320,7 +353,7 @@ export default function AIAvatar() {
                     <SAHAFace isActive={true} isHovered={false} size="sm" />
                   </div>
                   <div className="px-3 py-2.5 rounded-xl rounded-bl-sm border border-[rgba(0,212,255,0.15)]"
-                    style={{ background: 'rgba(0,212,255,0.06)' }}>
+                    style={{ background: 'rgba(0,212,255,0.07)' }}>
                     <div className="flex items-center gap-1">
                       {[0, 1, 2].map(i => (
                         <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#00d4ff]"
@@ -334,23 +367,11 @@ export default function AIAvatar() {
             </div>
 
             {/* Quick prompts */}
-            <div className="px-4 py-2 flex gap-2 flex-wrap border-t border-[rgba(0,212,255,0.1)]">
-              {['Skills', 'Projects', 'Experience', 'Contact'].map(prompt => (
+            <div className="px-4 py-2 flex gap-2 flex-wrap border-t border-[rgba(0,212,255,0.1)] flex-shrink-0">
+              {['Skills', 'Projects', 'Experience', 'About'].map(prompt => (
                 <button
                   key={prompt}
-                  onClick={() => {
-                    setInput(prompt);
-                    setTimeout(() => {
-                      const ev = { preventDefault: () => {} } as React.FormEvent;
-                      setMessages(prev => [...prev, { role: 'user', content: prompt, timestamp: new Date() }]);
-                      setInput('');
-                      setIsTyping(true);
-                      setTimeout(() => {
-                        setIsTyping(false);
-                        setMessages(prev => [...prev, { role: 'ai', content: getReply(prompt.toLowerCase()), timestamp: new Date() }]);
-                      }, 600);
-                    }, 10);
-                  }}
+                  onClick={() => sendMessage(prompt)}
                   className="text-[10px] font-mono px-2.5 py-1 rounded-full border border-[rgba(0,212,255,0.25)] text-[#00d4ff]/70 hover:text-[#00d4ff] hover:border-[rgba(0,212,255,0.6)] hover:bg-[rgba(0,212,255,0.06)] transition-all"
                   data-interactive="true"
                 >
@@ -360,7 +381,7 @@ export default function AIAvatar() {
             </div>
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-[rgba(0,212,255,0.15)]"
+            <div className="px-4 py-3 border-t border-[rgba(0,212,255,0.15)] flex-shrink-0"
               style={{ background: 'rgba(0,212,255,0.03)' }}>
               <form onSubmit={handleSend} className="flex gap-2">
                 <input
@@ -421,7 +442,6 @@ export default function AIAvatar() {
         transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
         data-interactive="true"
       >
-        {/* Glow rings */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
             animate={{ scale: [1, 1.15], opacity: [0.4, 0] }}
@@ -434,8 +454,6 @@ export default function AIAvatar() {
             className="absolute w-20 h-20 rounded-full border border-[#bd93f9]"
           />
         </div>
-
-        {/* Avatar container */}
         <div
           className="relative w-[72px] h-[86px] transition-all duration-300"
           style={{
@@ -447,8 +465,6 @@ export default function AIAvatar() {
         >
           <SAHAFace isActive={true} isHovered={isHovered} />
         </div>
-
-        {/* Label */}
         <div className="mt-1 flex flex-col items-center">
           <span className="text-[9px] font-mono font-bold tracking-[0.2em]"
             style={{ color: '#00d4ff', textShadow: '0 0 8px #00d4ff' }}>
