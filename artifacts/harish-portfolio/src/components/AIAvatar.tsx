@@ -100,17 +100,18 @@ function SAHAFace({ isActive, isHovered, size = 'md' }: {
         transition: 'box-shadow 0.3s ease',
       }}
     >
-      {/* Pixel-art character — cropped to head/shoulders */}
+      {/* Pixel-art character — fills circle, head at top */}
       <img
         src="/saha-pixel.png"
         alt="SAHA"
-        className="absolute"
         style={{
-          width: '130%',
-          height: 'auto',
-          left: '-15%',
-          top: size === 'sm' ? '-4%' : '-2%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
           objectFit: 'cover',
+          objectPosition: 'center 5%',
           imageRendering: 'pixelated',
         }}
       />

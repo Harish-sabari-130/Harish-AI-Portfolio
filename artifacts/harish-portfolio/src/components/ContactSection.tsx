@@ -26,7 +26,7 @@ export default function ContactSection() {
           <span className="text-primary mr-2">&gt;</span>CONNECT.PROTOCOL
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left Column - Contact Info */}
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg mb-8">

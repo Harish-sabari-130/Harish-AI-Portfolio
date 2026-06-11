@@ -20,7 +20,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
       initial={{ opacity: 0, scale: 0.88, rotateY: 15 }}
       animate={{ opacity: 1, scale: 1, rotateY: 0 }}
       transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-      className="relative w-full max-w-[380px] mx-auto hidden md:block"
+      className="relative w-full max-w-[220px] sm:max-w-[300px] md:max-w-[380px] mx-auto"
       style={{ perspective: '900px' }}
     >
       {/* Outer glow halo */}
@@ -143,7 +143,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ repeat: Infinity, duration: 4 }}
-        className="absolute top-6 -right-3 px-3 py-1.5 font-mono text-[10px] z-10"
+        className="absolute top-6 -right-3 px-3 py-1.5 font-mono text-[10px] z-10 hidden sm:block"
         style={{
           background: 'rgba(5,8,22,0.85)',
           border: '1px solid rgba(0,212,255,0.5)',
@@ -158,7 +158,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-        className="absolute bottom-20 -left-6 px-3 py-1.5 font-mono text-[10px] z-10"
+        className="absolute bottom-20 -left-6 px-3 py-1.5 font-mono text-[10px] z-10 hidden sm:block"
         style={{
           background: 'rgba(5,8,22,0.85)',
           border: '1px solid rgba(77,148,255,0.5)',
@@ -173,7 +173,7 @@ function HolographicPortrait({ mousePos }: { mousePos: { x: number; y: number } 
       <motion.div
         animate={{ y: [0, -6, 0] }}
         transition={{ repeat: Infinity, duration: 3.5, delay: 0.5 }}
-        className="absolute top-1/2 -right-8 px-3 py-1.5 font-mono text-[10px] z-10"
+        className="absolute top-1/2 -right-8 px-3 py-1.5 font-mono text-[10px] z-10 hidden sm:block"
         style={{
           background: 'rgba(5,8,22,0.85)',
           border: '1px solid rgba(189,147,249,0.5)',
@@ -247,7 +247,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* ── Left column ── */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -255,7 +255,7 @@ export default function HeroSection() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
         >
           {/* Tag line */}
-          <div className="font-mono text-[11px] tracking-[0.3em] mb-5 flex items-center gap-3"
+          <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] mb-4 sm:mb-5 flex items-center gap-3"
             style={{ color: 'rgba(0,212,255,0.7)' }}>
             <motion.span
               animate={{ scaleX: [1, 1.4, 1] }}
@@ -273,7 +273,7 @@ export default function HeroSection() {
           </div>
 
           {/* Name */}
-          <h1 className="text-[4.5rem] md:text-[6rem] font-black font-mono leading-none mb-2"
+          <h1 className="text-[2rem] sm:text-[2.8rem] md:text-[3.8rem] lg:text-[5rem] font-black font-mono leading-none mb-1"
             style={{
               background: 'linear-gradient(135deg, #ffffff 20%, #00d4ff 55%, #7c3aed 90%)',
               WebkitBackgroundClip: 'text',
@@ -283,8 +283,14 @@ export default function HeroSection() {
             }}>
             HARISH SABARI
           </h1>
-          <h2 className="text-lg md:text-xl font-mono tracking-[0.25em] mb-5"
-            style={{ color: 'rgba(189,147,249,0.8)' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-mono tracking-[0.35em] mb-5"
+            style={{
+              background: 'linear-gradient(135deg, #bd93f9 0%, #7c3aed 80%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0 0 16px rgba(189,147,249,0.4))',
+            }}>
             P V
           </h2>
 
@@ -303,15 +309,15 @@ export default function HeroSection() {
           </div>
 
           {/* Description */}
-          <p className="text-base mb-10 max-w-md leading-relaxed"
+          <p className="text-sm sm:text-base mb-8 md:mb-10 max-w-md leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'Space Grotesk, sans-serif' }}>
             Building intelligence that feels human — at the intersection of scalable AI systems and cinematic user experiences.
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3 sm:gap-4">
             <motion.button
-              className="relative px-8 py-3.5 font-mono font-bold text-sm overflow-hidden group"
+              className="relative px-5 sm:px-8 py-3 sm:py-3.5 font-mono font-bold text-xs sm:text-sm overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, #00d4ff, #0066ff)',
                 color: '#050816',
@@ -328,7 +334,7 @@ export default function HeroSection() {
             </motion.button>
 
             <motion.button
-              className="relative px-8 py-3.5 font-mono font-bold text-sm overflow-hidden group transition-all"
+              className="relative px-5 sm:px-8 py-3 sm:py-3.5 font-mono font-bold text-xs sm:text-sm overflow-hidden group transition-all"
               style={{
                 color: '#00d4ff',
                 border: '1px solid rgba(0,212,255,0.4)',
@@ -348,7 +354,7 @@ export default function HeroSection() {
           </div>
 
           {/* Social mini-links */}
-          <div className="flex items-center gap-6 mt-8">
+          <div className="flex items-center gap-5 mt-6 sm:mt-8">
             {['GitHub', 'LinkedIn', 'Twitter'].map(s => (
               <a key={s} href="#"
                 className="text-[10px] font-mono tracking-widest transition-colors hover:text-[#00d4ff]"
