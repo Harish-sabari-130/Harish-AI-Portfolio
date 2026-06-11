@@ -79,7 +79,7 @@ function getReply(input: string): string {
   return opts[Math.floor(Math.random() * opts.length)];
 }
 
-/* ── SAHA illustrated animated avatar ── */
+/* ── SAHA pixel-art avatar ── */
 function SAHAFace({ isActive, isHovered, size = 'md' }: {
   isActive: boolean;
   isHovered: boolean;
@@ -89,145 +89,79 @@ function SAHAFace({ isActive, isHovered, size = 'md' }: {
 
   return (
     <div
-      className="relative rounded-full saha-breathe flex-shrink-0"
+      className="relative rounded-full saha-breathe flex-shrink-0 overflow-hidden"
       style={{
         width: d,
         height: d,
+        background: '#05111e',
         boxShadow: isHovered
           ? '0 0 0 2px #00d4ff, 0 0 24px rgba(0,212,255,0.8), 0 0 48px rgba(0,212,255,0.3)'
           : `0 0 0 1.5px rgba(0,212,255,${isActive ? '0.8' : '0.4'}), 0 0 14px rgba(0,212,255,0.25)`,
         transition: 'box-shadow 0.3s ease',
       }}
     >
-      <svg
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full rounded-full"
-        style={{ display: 'block' }}
-      >
-        <defs>
-          <radialGradient id={`bg-${size}`} cx="50%" cy="40%" r="60%">
-            <stop offset="0%"   stopColor="#0d1f3c" />
-            <stop offset="60%"  stopColor="#070e1c" />
-            <stop offset="100%" stopColor="#050816" />
-          </radialGradient>
-          <radialGradient id={`eyeL-${size}`} cx="35%" cy="30%" r="65%">
-            <stop offset="0%"   stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="20%"  stopColor="#00e5ff" />
-            <stop offset="65%"  stopColor="#0055cc" />
-            <stop offset="100%" stopColor="#001a40" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id={`eyeR-${size}`} cx="35%" cy="30%" r="65%">
-            <stop offset="0%"   stopColor="#ffffff" stopOpacity="0.95" />
-            <stop offset="20%"  stopColor="#d084ff" />
-            <stop offset="65%"  stopColor="#6030b0" />
-            <stop offset="100%" stopColor="#1a0038" stopOpacity="0" />
-          </radialGradient>
-          <filter id={`glow-${size}`} x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="2.5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <clipPath id={`circle-${size}`}><circle cx="50" cy="50" r="50"/></clipPath>
-        </defs>
+      {/* Pixel-art character — cropped to head/shoulders */}
+      <img
+        src="/saha-pixel.png"
+        alt="SAHA"
+        className="absolute"
+        style={{
+          width: '130%',
+          height: 'auto',
+          left: '-15%',
+          top: size === 'sm' ? '-4%' : '-2%',
+          objectFit: 'cover',
+          imageRendering: 'pixelated',
+        }}
+      />
 
-        {/* Base circle fill */}
-        <circle cx="50" cy="50" r="50" fill={`url(#bg-${size})`} />
+      {/* Holographic cyan wash */}
+      <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+        background: 'linear-gradient(160deg, rgba(0,180,255,0.15) 0%, rgba(0,80,200,0.08) 50%, rgba(100,40,220,0.12) 100%)',
+        mixBlendMode: 'screen',
+      }} />
 
-        {/* Subtle circuit grid lines */}
-        <g opacity="0.07" clipPath={`url(#circle-${size})`}>
-          {[20,35,50,65,80].map(y => (
-            <line key={y} x1="0" y1={y} x2="100" y2={y} stroke="#00d4ff" strokeWidth="0.4"/>
-          ))}
-          {[20,35,50,65,80].map(x => (
-            <line key={x} x1={x} y1="0" x2={x} y2="100" stroke="#00d4ff" strokeWidth="0.4"/>
-          ))}
-        </g>
+      {/* Left edge glow */}
+      <div className="absolute inset-y-0 left-0 w-[18%] pointer-events-none" style={{
+        background: 'linear-gradient(to right, rgba(0,212,255,0.35), transparent)',
+      }} />
 
-        {/* Background ambient glow at face centre */}
-        <ellipse cx="50" cy="52" rx="28" ry="32"
-          fill="rgba(0,180,255,0.07)" />
+      {/* Right edge glow */}
+      <div className="absolute inset-y-0 right-0 w-[18%] pointer-events-none" style={{
+        background: 'linear-gradient(to left, rgba(124,58,237,0.3), transparent)',
+      }} />
 
-        {/* ── Hair mass ── */}
-        <ellipse cx="50" cy="28" rx="24" ry="20" fill="#0d0a22"/>
-        <ellipse cx="50" cy="30" rx="20" ry="16" fill="#150e2a"/>
-        {/* Hair highlight */}
-        <path d="M31 33 Q50 22 69 33" stroke="#00d4ff" strokeWidth="0.5" fill="none" strokeOpacity="0.2"/>
+      {/* Bottom vignette */}
+      <div className="absolute bottom-0 left-0 right-0 h-[22%] rounded-b-full pointer-events-none" style={{
+        background: 'linear-gradient(to top, rgba(5,8,22,0.75), transparent)',
+      }} />
 
-        {/* ── Face oval ── */}
-        <ellipse cx="50" cy="56" rx="20" ry="24"
-          fill="#0e1e35"
-          stroke="#00d4ff" strokeWidth="0.6" strokeOpacity="0.4"/>
+      {/* Scan-line overlay */}
+      <div className="absolute inset-0 rounded-full pointer-events-none" style={{
+        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.04) 2px, rgba(0,212,255,0.04) 3px)',
+        backgroundSize: '100% 4px',
+      }} />
 
-        {/* ── Ear hints ── */}
-        <ellipse cx="30" cy="55" rx="3" ry="5" fill="#0c1a2e" stroke="#00d4ff" strokeWidth="0.4" strokeOpacity="0.3"/>
-        <ellipse cx="70" cy="55" rx="3" ry="5" fill="#0c1a2e" stroke="#00d4ff" strokeWidth="0.4" strokeOpacity="0.3"/>
+      {/* Sweep line */}
+      <div className="absolute left-0 right-0 h-[1.5px] saha-scanline pointer-events-none" style={{
+        background: 'linear-gradient(90deg, transparent, rgba(0,212,255,0.6), transparent)',
+      }} />
 
-        {/* ── Eyebrows ── */}
-        <path d="M36 46 Q41 43 46 45" stroke="#00d4ff" strokeWidth="1.2" fill="none"
-          strokeOpacity="0.6" strokeLinecap="round"/>
-        <path d="M54 45 Q59 43 64 46" stroke="#bd93f9" strokeWidth="1.2" fill="none"
-          strokeOpacity="0.6" strokeLinecap="round"/>
-
-        {/* ── Left eye (cyan) ── */}
-        <g filter={`url(#glow-${size})`} className="saha-blink-l">
-          <ellipse cx="41" cy="52" rx="7" ry="5.5" fill={`url(#eyeL-${size})`}/>
-          <ellipse cx="41" cy="52" rx="4"  ry="3.5" fill="#030d1a"/>
-          <circle  cx="41" cy="52" r="1.8" fill="#00e5ff" opacity="0.95"/>
-          <circle  cx="42.5" cy="50.5" r="0.9" fill="white" opacity="0.9"/>
-        </g>
-
-        {/* ── Right eye (purple) ── */}
-        <g filter={`url(#glow-${size})`} className="saha-blink-r">
-          <ellipse cx="59" cy="52" rx="7" ry="5.5" fill={`url(#eyeR-${size})`}/>
-          <ellipse cx="59" cy="52" rx="4"  ry="3.5" fill="#08031a"/>
-          <circle  cx="59" cy="52" r="1.8" fill="#d084ff" opacity="0.95"/>
-          <circle  cx="60.5" cy="50.5" r="0.9" fill="white" opacity="0.9"/>
-        </g>
-
-        {/* ── Nose hint ── */}
-        <path d="M50 59 L48 65 Q50 67 52 65 L50 59"
-          stroke="rgba(0,212,255,0.18)" strokeWidth="0.8"
-          fill="rgba(0,212,255,0.04)" strokeLinecap="round"/>
-
-        {/* ── Lips ── */}
-        <path d="M41 72 Q50 76 59 72"
-          stroke="rgba(0,212,255,0.5)" strokeWidth="1.1"
-          fill="rgba(0,212,255,0.07)" strokeLinecap="round"/>
-        <path d="M45 72 Q50 74 55 72"
-          stroke="rgba(189,147,249,0.3)" strokeWidth="0.7"
-          fill="none" strokeLinecap="round"/>
-
-        {/* ── Neck & collar ── */}
-        <rect x="44" y="78" width="12" height="8" rx="2" fill="#0c1828"/>
-        <path d="M34 88 Q50 84 66 88 L66 100 L34 100 Z"
-          fill="#09121f" stroke="#00d4ff" strokeWidth="0.5" strokeOpacity="0.3"/>
-
-        {/* ── Animated scan sweep ── */}
-        <line x1="30" y1="30" x2="70" y2="30"
-          stroke="#00d4ff" strokeWidth="0.8" strokeOpacity="0.5"
-          clipPath={`url(#circle-${size})`}
-          className="saha-scanline"/>
-
-        {/* ── Scan lines overlay ── */}
-        <g clipPath={`url(#circle-${size})`} opacity="0.05">
-          {Array.from({length: 25}, (_, i) => (
-            <line key={i} x1="0" y1={i*4} x2="100" y2={i*4}
-              stroke="#00d4ff" strokeWidth="0.5"/>
-          ))}
-        </g>
-
-        {/* ── Status dot ── */}
-        {size === 'md' && (
-          <circle cx="50" cy="96" r="1.5" fill="#00d4ff"
-            opacity={isActive ? 1 : 0.3}
-            style={{ filter: 'drop-shadow(0 0 3px #00d4ff)' }}/>
-        )}
-
-        {/* ── Outer ring decorations ── */}
-        <circle cx="50" cy="50" r="49" fill="none"
-          stroke="#00d4ff" strokeWidth="0.4" strokeOpacity="0.35"
-          strokeDasharray="6 4"/>
+      {/* Dashed outer ring */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" fill="none"
+          stroke="#00d4ff" strokeWidth="0.8" strokeOpacity="0.4"
+          strokeDasharray="5 3"/>
       </svg>
+
+      {/* Status dot */}
+      {size === 'md' && (
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full pointer-events-none" style={{
+          background: '#00d4ff',
+          boxShadow: '0 0 6px #00d4ff',
+          opacity: isActive ? 1 : 0.4,
+        }} />
+      )}
     </div>
   );
 }
