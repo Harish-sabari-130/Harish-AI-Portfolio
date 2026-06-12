@@ -29,7 +29,8 @@ ENV BASE_PATH=/
 ENV NODE_ENV=production
 
 # Typecheck and build only the production API server and frontend, bypassing mockup-sandbox
-RUN pnpm --filter @workspace/api-server run typecheck \
+RUN pnpm run typecheck:libs \
+    && pnpm --filter @workspace/api-server run typecheck \
     && pnpm --filter @workspace/harish-portfolio run typecheck \
     && pnpm --filter @workspace/api-server run build \
     && pnpm --filter @workspace/harish-portfolio run build
