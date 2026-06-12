@@ -1,8 +1,8 @@
 # Use the official Node 24 slim image
 FROM node:24-slim AS base
 
-# Install pnpm globally
-RUN npm install -g pnpm
+# Install pnpm v10 globally to match local monorepo configurations and bypass strict v11 validations
+RUN npm install -g pnpm@10
 
 # Set the working directory
 WORKDIR /app
