@@ -18,7 +18,7 @@ COPY lib/db/package.json ./lib/db/
 COPY scripts/package.json ./scripts/
 
 # Install workspace dependencies
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # Copy the rest of the application files
 COPY . .
