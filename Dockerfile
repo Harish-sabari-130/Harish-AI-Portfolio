@@ -28,8 +28,11 @@ ENV PORT=5173
 ENV BASE_PATH=/
 ENV NODE_ENV=production
 
-# Build all monorepo packages (this typechecks and builds both frontend and backend)
-RUN pnpm run build
+# Typecheck and build only the production API server and frontend, bypassing mockup-sandbox
+RUN pnpm --filter @workspace/api-server run typecheck \
+    && pnpm --filter @workspace/harish-portfolio run typecheck \
+    && pnpm --filter @workspace/api-server run build \
+    && pnpm --filter @workspace/harish-portfolio run build
 
 # Expose backend port (5000) and frontend port (5173)
 EXPOSE 5000
