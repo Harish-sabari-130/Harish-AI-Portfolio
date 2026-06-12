@@ -5,7 +5,7 @@ const projects = [
   {
     title: "Safina – Women Safety Analysis",
     desc: "A smart women safety platform providing emergency assistance, real-time location tracking, and multi-level escalation to notify trusted contacts and emergency services during critical situations.",
-    tags: ["React", "Node.js", "MongoDB", "GPS Tracking"],
+    tags: ["Java", "Kotlin", "GPS Tracking"],
     github: "https://github.com/Harish-sabari-130/Women-safety-application",
     link: "https://github.com/Harish-sabari-130/Women-safety-application",
     features: ["Real-time location tracking", "Instant emergency alerts", "Multi-level escalation"]

@@ -83,7 +83,7 @@ Trusted contact notifications
 Emergency response support
 Technologies
 
-React • Node.js • MongoDB • GPS Tracking
+Java • Kotlin • GPS Tracking
 
 GitHub:
 https://github.com/Harish-sabari-130/Women-safety-application

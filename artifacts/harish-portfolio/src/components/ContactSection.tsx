@@ -1,14 +1,32 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Github, MapPin, Send } from 'lucide-react';
+import { useSubmitContactForm } from "@workspace/api-client-react";
 
 export default function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { mutateAsync: submitContact } = useSubmitContactForm();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    setTimeout(() => setStatus('success'), 1500);
+    try {
+      await submitContact({
+        data: { name, email, message }
+      });
+      setStatus('success');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (err) {
+      console.error("Contact form submit error:", err);
+      setStatus('idle');
+      alert("Failed to submit contact message. Please check connection and try again.");
+    }
   };
 
   return (
@@ -98,6 +116,8 @@ export default function ContactSection() {
                     <input 
                       required 
                       type="text" 
+                      value={name}
+                      onChange={e => setName(e.target.value)}
                       className="w-full bg-transparent border-0 border-b-2 border-border focus:border-primary outline-none py-2 text-foreground font-sans transition-colors peer placeholder:text-muted-foreground/30"
                       placeholder="John Doe"
                     />
@@ -109,6 +129,8 @@ export default function ContactSection() {
                     <input 
                       required 
                       type="email" 
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                       className="w-full bg-transparent border-0 border-b-2 border-border focus:border-primary outline-none py-2 text-foreground font-sans transition-colors peer placeholder:text-muted-foreground/30"
                       placeholder="john@example.com"
                     />
@@ -120,6 +142,8 @@ export default function ContactSection() {
                     <textarea 
                       required 
                       rows={4}
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
                       className="w-full bg-transparent border-0 border-b-2 border-border focus:border-primary outline-none py-2 text-foreground font-sans transition-colors peer resize-none placeholder:text-muted-foreground/30"
                       placeholder="Enter your message here..."
                     />

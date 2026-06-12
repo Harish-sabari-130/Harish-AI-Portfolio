@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Minus, ChevronDown } from 'lucide-react';
+import { useSendChatMessage } from "@workspace/api-client-react";
 
 interface Message {
   role: 'ai' | 'user';
@@ -214,20 +215,52 @@ export default function AIAvatar() {
     }
   }, [isOpen, isMinimized]);
 
-  const sendMessage = useCallback((text: string) => {
+  const { mutateAsync: sendChatMsg } = useSendChatMessage();
+
+  const sendMessage = useCallback(async (text: string) => {
     if (!text.trim()) return;
-    setMessages(prev => [...prev, { role: 'user', content: text.trim(), timestamp: new Date() }]);
+
+    const userMessage: Message = { role: 'user', content: text.trim(), timestamp: new Date() };
+    const currentMessages = [...messages, userMessage];
+    setMessages(currentMessages);
     setInput('');
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      const history = currentMessages.map(m => ({
+        role: (m.role === 'user' ? 'user' : 'model') as 'user' | 'model',
+        text: m.content
+      }));
+
+      const result = await sendChatMsg({
+        data: {
+          message: text.trim(),
+          history: history.slice(0, -1)
+        }
+      });
+
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'ai',
+          content: result.response,
+          timestamp: new Date()
+        }
+      ]);
+    } catch (err) {
+      console.error("Chat API error:", err);
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'ai',
+          content: "System message (offline fallback): " + getReply(text.trim()),
+          timestamp: new Date()
+        }
+      ]);
+    } finally {
       setIsTyping(false);
-      setMessages(prev => [...prev, {
-        role: 'ai',
-        content: getReply(text.trim()),
-        timestamp: new Date(),
-      }]);
-    }, 600 + Math.random() * 300);
-  }, []);
+    }
+  }, [messages, sendChatMsg]);
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
