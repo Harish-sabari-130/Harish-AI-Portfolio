@@ -58,8 +58,8 @@ if (staticPath) {
 
 app.use("/api", router);
 
-// Fallback to index.html for React SPA router
-app.get("*", (req, res, next) => {
+// Fallback to index.html for React SPA router in Express 5 (wildcards must be named)
+app.get("*any", (req, res, next) => {
   if (req.path.startsWith("/api")) {
     return next();
   }
