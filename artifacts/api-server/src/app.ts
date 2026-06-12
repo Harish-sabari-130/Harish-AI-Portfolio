@@ -1,4 +1,6 @@
 import path from "node:path";
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
 import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
@@ -30,9 +32,29 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static assets from the frontend compiled dist folder
-const staticPath = path.resolve(process.cwd(), "..", "harish-portfolio", "dist", "public");
-app.use(express.static(staticPath));
+// Resolve static assets path dynamically from possible filesystem layouts
+const currentDir = import.meta.dirname || path.dirname(fileURLToPath(import.meta.url));
+const possibleStaticPaths = [
+  path.resolve(currentDir, "..", "..", "harish-portfolio", "dist", "public"),     // relative to dist/index.mjs
+  path.resolve(currentDir, "..", "harish-portfolio", "dist", "public"),          // relative to src/app.ts
+  path.resolve(process.cwd(), "artifacts", "harish-portfolio", "dist", "public"), // starting from root /app
+  path.resolve(process.cwd(), "..", "harish-portfolio", "dist", "public"),        // starting from api-server dir
+];
+
+let staticPath = "";
+for (const p of possibleStaticPaths) {
+  if (fs.existsSync(p)) {
+    staticPath = p;
+    logger.info({ staticPath: p }, "Resolved frontend static assets path successfully");
+    break;
+  }
+}
+
+if (staticPath) {
+  app.use(express.static(staticPath));
+} else {
+  logger.warn("Could not resolve frontend static assets path. Frontend will not be served statically.");
+}
 
 app.use("/api", router);
 
@@ -41,11 +63,15 @@ app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) {
     return next();
   }
-  res.sendFile(path.join(staticPath, "index.html"), (err) => {
-    if (err) {
-      next();
-    }
-  });
+  if (staticPath) {
+    res.sendFile(path.join(staticPath, "index.html"), (err) => {
+      if (err) {
+        next();
+      }
+    });
+  } else {
+    res.status(404).send("Not Found");
+  }
 });
 
 export default app;
